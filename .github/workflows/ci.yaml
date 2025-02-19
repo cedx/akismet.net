@@ -13,3 +13,5 @@ jobs:
           dotnet-version: 8
       - name: Run tests
         run: dotnet test
+        env:
+          AKISMET_API_KEY: ${{secrets.AKISMET_API_KEY}}

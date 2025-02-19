@@ -1,13 +1,83 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "akismet", "src\akismet.csproj", "{98B27F68-6830-48B9-A6A4-02B45F0B3199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "akismet.tests", "test\akismet.tests.csproj", "{638C627B-226F-400F-822E-7BCE8CF8CF41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.runsettings = .runsettings
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{56E7B444-7ADF-4057-B7DB-E4F2D741E928}"
+	ProjectSection(SolutionItems) = preProject
+		build.cake = build.cake
+		cake.config = cake.config
+		.github\workflows\ci.yaml = .github\workflows\ci.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{ED5A519F-292F-4E9B-8DD0-337E0524A819}"
+	ProjectSection(SolutionItems) = preProject
+		AUTHORS.txt = AUTHORS.txt
+		CHANGELOG.md = CHANGELOG.md
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{EE82C9B3-AD9E-4A0E-803C-12C639C902E0}"
+	ProjectSection(SolutionItems) = preProject
+		example\check_comment.cs = example\check_comment.cs
+		example\submit_ham.cs = example\submit_ham.cs
+		example\submit_spam.cs = example\submit_spam.cs
+		example\verify_key.cs = example\verify_key.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Debug|x64.Build.0 = Debug|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Debug|x86.Build.0 = Debug|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Release|x64.ActiveCfg = Release|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Release|x64.Build.0 = Release|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Release|x86.ActiveCfg = Release|Any CPU
+		{98B27F68-6830-48B9-A6A4-02B45F0B3199}.Release|x86.Build.0 = Release|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Debug|x64.Build.0 = Debug|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Debug|x86.Build.0 = Debug|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Release|x64.ActiveCfg = Release|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Release|x64.Build.0 = Release|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Release|x86.ActiveCfg = Release|Any CPU
+		{638C627B-226F-400F-822E-7BCE8CF8CF41}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D41C817-0162-4B59-AE05-1933E67DE216}
 	EndGlobalSection
 EndGlobal
