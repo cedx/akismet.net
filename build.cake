@@ -1,5 +1,6 @@
-using static System.IO.File;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
+using static System.IO.File;
 
 var release = HasArgument("r") || HasArgument("release");
 var target = Argument<string>("t", null) ?? Argument("target", "default");
@@ -31,10 +32,8 @@ Task("test")
 
 Task("version")
 	.Description("Updates the version number in the sources.")
-	.DoesForEach(GetFiles("*/*.csproj"), file => {
-		var pattern = new Regex(@"<Version>\d+(\.\d+){2}</Version>");
-		WriteAllText(file.FullPath, pattern.Replace(ReadAllText(file.FullPath), $"<Version>{version}</Version>"));
-	});
+	.Does(() => ReplaceInFile("src/client.cs", @"Version = ""\d+(\.\d+){2}"";", $"Version = \"{version}\";"))
+	.DoesForEach(GetFiles("*/*.csproj"), file => ReplaceInFile(file, @"<Version>\d+(\.\d+){2}</Version>", $"<Version>{version}</Version>"));
 
 Task("default")
 	.Description("The default task.")
@@ -43,3 +42,14 @@ Task("default")
 	.IsDependentOn("build");
 
 RunTarget(target);
+
+/// <summary>
+/// Replaces the specified pattern in a given file.
+/// </summary>
+/// <param name="file">The path of the file to be processed.</param>
+/// <param name="pattern">The regular expression to find.</param>
+/// <param name="replacement">The replacement text.</param>
+/// <param name="options">The regular expression options to use.</param>
+void ReplaceInFile(FilePath file, [StringSyntax(StringSyntaxAttribute.Regex)] string pattern, string replacement, RegexOptions options = RegexOptions.None) {
+	WriteAllText(file.FullPath, new Regex(pattern, options).Replace(ReadAllText(file.FullPath), replacement));
+}
