@@ -24,17 +24,17 @@ public class Comment(Author author) {
 	/// <summary>
 	/// The UTC timestamp of the creation of the comment.
 	/// </summary>
-	public DateTime? Date { get; set; } = null;
+	public DateTime? Date { get; set; }
 
 	/// <summary>
 	/// The permanent location of the entry the comment is submitted to.
 	/// </summary>
-	public Uri? Permalink { get; set; } = null;
+	public Uri? Permalink { get; set; }
 
 	/// <summary>
 	/// The UTC timestamp of the publication time for the post, page or thread on which the comment was posted.
 	/// </summary>
-	public DateTime? PostModified { get; set; } = null;
+	public DateTime? PostModified { get; set; }
 
 	/// <summary>
 	/// A string describing why the content is being rechecked.
@@ -44,7 +44,7 @@ public class Comment(Author author) {
 	/// <summary>
 	/// The URL of the webpage that linked to the entry being requested.
 	/// </summary>
-	public Uri? Referrer { get; set; } = null;
+	public Uri? Referrer { get; set; }
 
 	/// <summary>
 	/// The comment's type.

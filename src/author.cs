@@ -31,7 +31,7 @@ public class Author(string ipAddress) {
 	/// <summary>
 	/// The URL of the author's website.
 	/// </summary>
-	public Uri? Url { get; set; } = null;
+	public Uri? Url { get; set; }
 
 	/// <summary>
 	/// The author's user agent, that is the string identifying the Web browser used to submit comments.
