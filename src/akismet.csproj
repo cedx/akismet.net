@@ -13,4 +13,8 @@
 		<OutDir>../bin</OutDir>
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Belin.Akismet.Tests" />
+	</ItemGroup>
 </Project>

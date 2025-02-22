@@ -6,7 +6,7 @@ using System.Text;
 /// Represents the front page or home URL transmitted when making requests.
 /// </summary>
 /// <param name="url">The blog or site URL.</param>
-public class Blog(Uri url) {
+public class Blog(string url) {
 
 	/// <summary>
 	/// The character encoding for the values included in comments.
@@ -21,15 +21,15 @@ public class Blog(Uri url) {
 	/// <summary>
 	/// The blog or site URL.
 	/// </summary>
-	public Uri Url { get; set; } = url;
+	public Uri Url { get; set; } = new Uri(url);
 
 	/// <summary>
 	/// Returns a JSON representation of this object.
 	/// </summary>
 	/// <returns>The JSON representation of this object.</returns>
-	public IDictionary<string, string> ToJson() {
+	internal IDictionary<string, string> ToJson() {
 		var map = new Dictionary<string, string> { ["blog"] = Url.ToString() };
-		if (Charset != null) map["blog_charset"] = Charset.WebName;
+		if (Charset is not null) map["blog_charset"] = Charset.WebName;
 		if (Languages.Count != 0) map["blog_lang"] = string.Join(',', Languages);
 		return map;
 	}

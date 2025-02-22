@@ -37,6 +37,20 @@ public class Author(string ipAddress) {
 	/// The author's user agent, that is the string identifying the Web browser used to submit comments.
 	/// </summary>
 	public string UserAgent { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Returns a JSON representation of this object.
+	/// </summary>
+	/// <returns>The JSON representation of this object.</returns>
+	internal IDictionary<string, string> ToJson() {
+		var map = new Dictionary<string, string> { ["user_ip"] = IPAddress.ToString() };
+		if (!string.IsNullOrWhiteSpace(Email)) map["comment_author_email"] = Email;
+		if (!string.IsNullOrWhiteSpace(Name)) map["comment_author"] = Name;
+		if (!string.IsNullOrWhiteSpace(Role)) map["user_role"] = Role;
+		if (Url is not null) map["comment_author_url"] = Url.ToString();
+		if (!string.IsNullOrWhiteSpace(UserAgent)) map["user_agent"] = UserAgent;
+		return map;
+	}
 }
 
 /// <summary>
