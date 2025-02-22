@@ -11,7 +11,7 @@ using System.Net.Http.Headers;
 public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.akismet.com") {
 
 	/// <summary>
-	/// The response returned by the `submit-ham` and `submit-spam` endpoints when the outcome is a success.
+	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
 	/// </summary>
 	private const string Success = "Thanks for making the web a better place.";
 
@@ -53,7 +53,7 @@ public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.aki
 	/// <returns>A value indicating whether the specified comment is spam.</returns>
 	/// <exception cref="HttpRequestException">The remote server returned an invalid response.</exception>
 	public async Task<CheckResult> CheckComment(Comment comment, CancellationToken cancellationToken = default) {
-		using var response = await Fetch("comment-check", comment.ToJson(), cancellationToken);
+		using var response = await Fetch("1.1/comment-check", comment.ToJson(), cancellationToken);
 		if (await response.Content.ReadAsStringAsync(cancellationToken) == "false") return CheckResult.Ham;
 		if (!response.Headers.TryGetValues("X-akismet-pro-tip", out var proTips)) return CheckResult.Spam;
 		return proTips.First() == "discard" ? CheckResult.PervasiveSpam : CheckResult.Spam;

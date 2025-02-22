@@ -9,7 +9,7 @@ using System.Net;
 public class Author(string ipAddress) {
 
 	/// <summary>
-	/// The author's mail address. If you set it to `"akismet-guaranteed-spam@example.com"`, Akismet will always return `true`.
+	/// The author's mail address. If you set it to <c>"akismet-guaranteed-spam@example.com"</c>, Akismet will always return <see langword="true"/>.
 	/// </summary>
 	public string Email { get; set; } = string.Empty;
 
@@ -19,12 +19,12 @@ public class Author(string ipAddress) {
 	public IPAddress IPAddress { get; set; } = IPAddress.Parse(ipAddress);
 
 	/// <summary>
-	/// The author's name. If you set it to `"viagra-test-123"`, Akismet will always return `true`.
+	/// The author's name. If you set it to <c>"viagra-test-123"</c>, Akismet will always return <see langword="true"/>.
 	/// </summary>
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The author's role. If you set it to `"administrator"`, Akismet will always return `false`.
+	/// The author's role. If you set it to <c>"administrator"</c>, Akismet will always return <see langword="false"/>.
 	/// </summary>
 	public string Role { get; set; } = string.Empty;
 
