@@ -1,7 +1,5 @@
 namespace Belin.Akismet;
 
-using System.Net.Http.Headers;
-
 /// <summary>
 /// Submits comments to the Akismet service.
 /// </summary>
