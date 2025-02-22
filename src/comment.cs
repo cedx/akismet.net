@@ -50,6 +50,23 @@ public class Comment(Author author) {
 	/// The comment's type.
 	/// </summary>
 	public string Type { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Returns a JSON representation of this object.
+	/// </summary>
+	/// <returns>The JSON representation of this object.</returns>
+	internal IDictionary<string, string> ToJson() {
+		var map = Author.ToJson();
+		if (!string.IsNullOrWhiteSpace(Content)) map["comment_content"] = Content;
+		// TODO if (Context.Count > 0) map["comment_context"] = Context.ToString();
+		if (Date is not null) map["comment_date_gmt"] = Date?.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")!;
+		if (Permalink is not null) map["permalink"] = Permalink.ToString();
+		if (PostModified is not null) map["comment_post_modified_gmt"] = PostModified?.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")!;
+		if (!string.IsNullOrWhiteSpace(RecheckReason)) map["recheck_reason"] = RecheckReason;
+		if (Referrer is not null) map["referrer"] = Referrer.ToString();
+		if (!string.IsNullOrWhiteSpace(Type)) map["comment_type"] = Type;
+		return map;
+	}
 }
 
 /// <summary>
