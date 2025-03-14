@@ -18,7 +18,7 @@ Task("clean")
 
 Task("format")
 	.Description("Formats the source code.")
-	.Does(() => DotNetFormat("akismet.sln"));
+	.Does(() => DotNetFormat("akismet.slnx"));
 
 Task("publish")
 	.Description("Publishes the package.")

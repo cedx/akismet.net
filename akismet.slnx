@@ -1,0 +1,4 @@
+<Solution>
+	<Project Path="src/akismet.csproj" />
+	<Project Path="test/akismet.tests.csproj" />
+</Solution>
