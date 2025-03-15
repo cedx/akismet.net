@@ -4,7 +4,7 @@ namespace Belin.Akismet;
 /// Represents a comment submitted by an author.
 /// </summary>
 /// <param name="author">The comment's author.</param>
-public class Comment(Author author) {
+public sealed class Comment(Author author) {
 
 	/// <summary>
 	/// The comment's author.

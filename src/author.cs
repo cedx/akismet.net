@@ -6,7 +6,7 @@ using System.Net;
 /// Represents the author of a comment.
 /// </summary>
 /// <param name="ipAddress">The author's IP address.</param>
-public class Author(string ipAddress) {
+public sealed class Author(string ipAddress) {
 
 	/// <summary>
 	/// The author's mail address. If you set it to <c>"akismet-guaranteed-spam@example.com"</c>, Akismet will always return <see langword="true"/>.
