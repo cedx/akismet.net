@@ -51,7 +51,7 @@ public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.aki
 	/// <returns>A value indicating whether the specified comment is spam.</returns>
 	/// <exception cref="HttpRequestException">The remote server returned an invalid response.</exception>
 	public async Task<CheckResult> CheckComment(Comment comment, CancellationToken cancellationToken = default) {
-		using var response = await Fetch("1.1/comment-check", comment.ToJson(), cancellationToken);
+		using var response = await Fetch("1.1/comment-check", comment.ToDictionary(), cancellationToken);
 		if (await response.Content.ReadAsStringAsync(cancellationToken) == "false") return CheckResult.Ham;
 		if (!response.Headers.TryGetValues("X-akismet-pro-tip", out var proTips)) return CheckResult.Spam;
 		return proTips.First() == "discard" ? CheckResult.PervasiveSpam : CheckResult.Spam;
@@ -65,7 +65,7 @@ public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.aki
 	/// <returns>Completes once the comment has been submitted.</returns>
 	/// <exception cref="HttpRequestException">The remote server returned an invalid response.</exception>
 	public async Task SubmitHam(Comment comment, CancellationToken cancellationToken = default) {
-		using var response = await Fetch("1.1/submit-ham", comment.ToJson(), cancellationToken);
+		using var response = await Fetch("1.1/submit-ham", comment.ToDictionary(), cancellationToken);
 		var body = await response.Content.ReadAsStringAsync(cancellationToken);
 		if (body != Success) throw new HttpRequestException("Invalid server response.");
 	}
@@ -78,7 +78,7 @@ public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.aki
 	/// <returns>Completes once the comment has been submitted.</returns>
 	/// <exception cref="HttpRequestException">The remote server returned an invalid response.</exception>
 	public async Task SubmitSpam(Comment comment, CancellationToken cancellationToken = default) {
-		using var response = await Fetch("1.1/submit-spam", comment.ToJson(), cancellationToken);
+		using var response = await Fetch("1.1/submit-spam", comment.ToDictionary(), cancellationToken);
 		var body = await response.Content.ReadAsStringAsync(cancellationToken);
 		if (body != Success) throw new HttpRequestException("Invalid server response.");
 	}
@@ -107,7 +107,7 @@ public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.aki
 	/// <returns>The server response.</returns>
 	/// <exception cref="HttpRequestException">An error occurred while querying the end point.</exception>
 	private async Task<HttpResponseMessage> Fetch(string endpoint, IDictionary<string, string>? fields = null, CancellationToken cancellationToken = default) {
-		var postFields = Blog.ToJson();
+		var postFields = Blog.ToDictionary();
 		postFields.Add("api_key", ApiKey);
 		if (IsTest) postFields.Add("is_test", "1");
 		if (fields is not null) foreach (var item in fields) postFields.Add(item.Key, item.Value);

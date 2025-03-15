@@ -7,9 +7,9 @@ namespace Belin.Akismet;
 public sealed class AuthorTest {
 
 	[TestMethod]
-	public void ToJson() {
+	public void ToDictionary() {
 		// It should return only the IP address with a newly created instance.
-		var map = new Author(ipAddress: "127.0.0.1").ToJson();
+		var map = new Author(ipAddress: "127.0.0.1").ToDictionary();
 		AreEqual(1, map.Count);
 		AreEqual("127.0.0.1", map["user_ip"]);
 
@@ -21,7 +21,7 @@ public sealed class AuthorTest {
 			UserAgent = "Mozilla/5.0"
 		};
 
-		map = author.ToJson();
+		map = author.ToDictionary();
 		AreEqual(5, map.Count);
 		AreEqual("Cédric Belin", map["comment_author"]);
 		AreEqual("cedric@belin.io", map["comment_author_email"]);

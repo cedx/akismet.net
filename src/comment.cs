@@ -52,11 +52,11 @@ public sealed class Comment(Author author) {
 	public string Type { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Returns a JSON representation of this object.
+	/// Converts this object into a dictionary.
 	/// </summary>
-	/// <returns>The JSON representation of this object.</returns>
-	internal IDictionary<string, string> ToJson() {
-		var map = Author.ToJson();
+	/// <returns>The dictionary corresponding to this object.</returns>
+	internal IDictionary<string, string> ToDictionary() {
+		var map = Author.ToDictionary();
 		if (!string.IsNullOrWhiteSpace(Content)) map["comment_content"] = Content;
 		// TODO if (Context.Count > 0) map["comment_context"] = string.Join(',', Context);
 		if (Date is not null) map["comment_date_gmt"] = Date?.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")!;

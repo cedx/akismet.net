@@ -9,14 +9,14 @@ using System.Text;
 public sealed class BlogTest {
 
 	[TestMethod]
-	public void ToJson() {
+	public void ToDictionary() {
 		// It should return only the blog URL with a newly created instance.
-		var map = new Blog(url: "https://github.com/cedx/akismet.cs").ToJson();
+		var map = new Blog(url: "https://github.com/cedx/akismet.cs").ToDictionary();
 		AreEqual(1, map.Count);
 		AreEqual("https://github.com/cedx/akismet.cs", map["blog"]);
 
 		// It should return a non-empty map with an initialized instance.
-		map = new Blog(url: "https://github.com/cedx/akismet.cs") { Charset = Encoding.UTF8, Languages = ["en", "fr"] }.ToJson();
+		map = new Blog(url: "https://github.com/cedx/akismet.cs") { Charset = Encoding.UTF8, Languages = ["en", "fr"] }.ToDictionary();
 		AreEqual(3, map.Count);
 		AreEqual("https://github.com/cedx/akismet.cs", map["blog"]);
 		AreEqual("utf-8", map["blog_charset"]);

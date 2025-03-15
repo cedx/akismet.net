@@ -7,9 +7,9 @@ namespace Belin.Akismet;
 public sealed class CommentTest {
 
 	[TestMethod]
-	public void ToJson() {
+	public void ToDictionary() {
 		// It should return only the author info with a newly created instance.
-		var map = new Comment(new Author(ipAddress: "127.0.0.1")).ToJson();
+		var map = new Comment(new Author(ipAddress: "127.0.0.1")).ToDictionary();
 		AreEqual(1, map.Count);
 		AreEqual("127.0.0.1", map["user_ip"]);
 
@@ -26,7 +26,7 @@ public sealed class CommentTest {
 			Type = "blog-post"
 		};
 
-		map = comment.ToJson();
+		map = comment.ToDictionary();
 		AreEqual(7, map.Count);
 		AreEqual("Cédric Belin", map["comment_author"]);
 		AreEqual("A user comment.", map["comment_content"]);
