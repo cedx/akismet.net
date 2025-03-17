@@ -21,17 +21,17 @@ public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.aki
 	/// <summary>
 	/// The Akismet API key.
 	/// </summary>
-	public string ApiKey { get; private set; } = apiKey;
+	public string ApiKey { get; } = apiKey;
 
 	/// <summary>
 	/// The base URL of the remote API endpoint.
 	/// </summary>
-	public Uri BaseUrl { get; private set; } = new Uri(baseUrl.EndsWith('/') ? baseUrl : $"{baseUrl}/");
+	public Uri BaseUrl { get; } = new Uri(baseUrl.EndsWith('/') ? baseUrl : $"{baseUrl}/");
 
 	/// <summary>
 	/// The front page or home URL of the instance making requests.
 	/// </summary>
-	public Blog Blog { get; private set; } = blog;
+	public Blog Blog { get; } = blog;
 
 	/// <summary>
 	/// Value indicating whether the client operates in test mode.
