@@ -8,7 +8,7 @@ var version = Context.Configuration.GetValue("package_version");
 
 Task("build")
 	.Description("Builds the project.")
-	.Does(() => DotNetBuild("src/akismet.csproj", new() { Configuration = release ? "Release" : "Debug" }));
+	.Does(() => DotNetBuild("src", new() { Configuration = release ? "Release" : "Debug" }));
 
 Task("clean")
 	.Description("Deletes all generated files.")
@@ -18,7 +18,7 @@ Task("clean")
 
 Task("format")
 	.Description("Formats the source code.")
-	.Does(() => DotNetFormat("akismet.slnx"));
+	.DoesForEach(["src", "test"], project => DotNetFormat(project));
 
 Task("publish")
 	.Description("Publishes the package.")
@@ -28,7 +28,7 @@ Task("publish")
 
 Task("test")
 	.Description("Runs the test suite.")
-	.Does(() => DotNetTest("test/akismet.tests.csproj", new() { Settings = ".runsettings" }));
+	.Does(() => DotNetTest("test", new() { Settings = ".runsettings" }));
 
 Task("version")
 	.Description("Updates the version number in the sources.")
