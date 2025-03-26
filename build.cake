@@ -51,5 +51,5 @@ RunTarget(target);
 /// <param name="replacement">The replacement text.</param>
 /// <param name="options">The regular expression options to use.</param>
 void ReplaceInFile(FilePath file, [StringSyntax(StringSyntaxAttribute.Regex)] string pattern, string replacement, RegexOptions options = RegexOptions.None) {
-	WriteAllText(file.FullPath, new Regex(pattern, options).Replace(ReadAllText(file.FullPath), replacement));
+	WriteAllText(file.FullPath, Regex.Replace(ReadAllText(file.FullPath), pattern, replacement, options));
 }
