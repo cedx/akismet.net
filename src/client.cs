@@ -1,12 +1,14 @@
 namespace Belin.Akismet;
 
+using System.Diagnostics.CodeAnalysis;
+
 /// <summary>
 /// Submits comments to the Akismet service.
 /// </summary>
 /// <param name="apiKey">The Akismet API key.</param>
 /// <param name="blog">The front page or home URL of the instance making requests.</param>
 /// <param name="baseUrl">The base URL of the remote API endpoint.</param>
-public class Client(string apiKey, Blog blog, string baseUrl = "https://rest.akismet.com") {
+public class Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribute.Uri)] string baseUrl = "https://rest.akismet.com") {
 
 	/// <summary>
 	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
