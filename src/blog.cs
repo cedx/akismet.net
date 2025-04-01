@@ -27,7 +27,7 @@ public sealed class Blog(string url) {
 	/// Converts this object into a dictionary.
 	/// </summary>
 	/// <returns>The dictionary corresponding to this object.</returns>
-	internal IDictionary<string, string> ToDictionary() {
+	internal Dictionary<string, string> ToDictionary() {
 		var map = new Dictionary<string, string> { ["blog"] = Url.ToString() };
 		if (Charset is not null) map["blog_charset"] = Charset.WebName;
 		if (Languages.Count != 0) map["blog_lang"] = string.Join(',', Languages);

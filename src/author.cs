@@ -42,7 +42,7 @@ public sealed class Author(string ipAddress) {
 	/// Converts this object into a dictionary.
 	/// </summary>
 	/// <returns>The dictionary corresponding to this object.</returns>
-	internal IDictionary<string, string> ToDictionary() {
+	internal Dictionary<string, string> ToDictionary() {
 		var map = new Dictionary<string, string> { ["user_ip"] = IPAddress.ToString() };
 		if (!string.IsNullOrWhiteSpace(Email)) map["comment_author_email"] = Email;
 		if (!string.IsNullOrWhiteSpace(Name)) map["comment_author"] = Name;

@@ -55,7 +55,7 @@ public sealed class Comment(Author author) {
 	/// Converts this object into a dictionary.
 	/// </summary>
 	/// <returns>The dictionary corresponding to this object.</returns>
-	internal IDictionary<string, string> ToDictionary() {
+	internal Dictionary<string, string> ToDictionary() {
 		var map = Author.ToDictionary();
 		if (!string.IsNullOrWhiteSpace(Content)) map["comment_content"] = Content;
 		// TODO if (Context.Count > 0) map["comment_context"] = string.Join(',', Context);
