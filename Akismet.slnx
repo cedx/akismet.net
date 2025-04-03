@@ -17,10 +17,10 @@
 		<File Path="README.md" />
 	</Folder>
 	<Folder Name="/example/">
-		<File Path="example/check_comment.cs" />
-		<File Path="example/submit_ham.cs" />
-		<File Path="example/submit_spam.cs" />
-		<File Path="example/verify_key.cs" />
+		<File Path="example/CheckComment.cs" />
+		<File Path="example/SubmitHam.cs" />
+		<File Path="example/SubmitSpam.cs" />
+		<File Path="example/VerifyKey.cs" />
 	</Folder>
 	<Folder Name="/share/">
 		<File Path="share/check_comment.http" />
