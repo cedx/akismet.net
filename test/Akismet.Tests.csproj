@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="../src/akismet.csproj" />
+		<ProjectReference Include="../src/Akismet.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
