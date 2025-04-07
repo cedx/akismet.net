@@ -59,9 +59,9 @@ public sealed class Comment(Author author) {
 		var map = Author.ToDictionary();
 		if (!string.IsNullOrWhiteSpace(Content)) map["comment_content"] = Content;
 		// TODO if (Context.Count > 0) map["comment_context"] = string.Join(',', Context);
-		if (Date is not null) map["comment_date_gmt"] = Date?.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")!;
+		if (Date is not null) map["comment_date_gmt"] = Date?.ToUniversalTime().ToString("o")!;
 		if (Permalink is not null) map["permalink"] = Permalink.ToString();
-		if (PostModified is not null) map["comment_post_modified_gmt"] = PostModified?.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")!;
+		if (PostModified is not null) map["comment_post_modified_gmt"] = PostModified?.ToUniversalTime().ToString("o")!;
 		if (!string.IsNullOrWhiteSpace(RecheckReason)) map["recheck_reason"] = RecheckReason;
 		if (Referrer is not null) map["referrer"] = Referrer.ToString();
 		if (!string.IsNullOrWhiteSpace(Type)) map["comment_type"] = Type;

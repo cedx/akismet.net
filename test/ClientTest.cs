@@ -49,7 +49,11 @@ public sealed class ClientTest {
 			UserAgent = "Spam Bot/6.6.6"
 		};
 
-		spam = new Comment(spamAuthor) { Content = "Spam!", Type = CommentType.BlogPost };
+		spam = new Comment(spamAuthor) {
+			Content = "Spam!",
+			Date = DateTime.Now,
+			Type = CommentType.BlogPost
+		};
 	}
 
 	[TestMethod]

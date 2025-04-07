@@ -1,5 +1,7 @@
 namespace Belin.Akismet;
 
+using System.Globalization;
+
 /// <summary>
 /// Tests the features of the <see cref="Comment"/> class.
 /// </summary>
@@ -21,7 +23,7 @@ public sealed class CommentTest {
 
 		var comment = new Comment(author) {
 			Content = "A user comment.",
-			Date = DateTime.Parse("2000-01-01T00:00:00.000Z"),
+			Date = DateTime.Parse("2000-01-01T00:00:00Z", styles: DateTimeStyles.RoundtripKind),
 			Referrer = new Uri("https://belin.io"),
 			Type = "blog-post"
 		};
@@ -30,7 +32,7 @@ public sealed class CommentTest {
 		AreEqual(7, map.Count);
 		AreEqual("Cédric Belin", map["comment_author"]);
 		AreEqual("A user comment.", map["comment_content"]);
-		AreEqual("2000-01-01T00:00:00Z", map["comment_date_gmt"]);
+		AreEqual("2000-01-01T00:00:00.0000000Z", map["comment_date_gmt"]);
 		AreEqual("blog-post", map["comment_type"]);
 		AreEqual("https://belin.io/", map["referrer"]);
 		AreEqual("Doom/6.6.6", map["user_agent"]);
