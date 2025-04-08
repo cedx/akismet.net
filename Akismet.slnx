@@ -1,5 +1,4 @@
 <Solution>
-	<Folder Name="/.config/">
 	<Project Path="src/Akismet.csproj" />
 	<Project Path="test/Akismet.Tests.csproj">
 		<Build Solution="Release|*" Project="false" />
