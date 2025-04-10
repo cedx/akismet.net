@@ -28,7 +28,7 @@ public sealed class ClientTest {
 	/// Creates a new test.
 	/// </summary>
 	public ClientTest() {
-		client = new Client(Environment.GetEnvironmentVariable("AKISMET_API_KEY")!, new Blog("https://github.com/cedx/akismet.cs")) { IsTest = true };
+		client = new Client(Environment.GetEnvironmentVariable("AKISMET_API_KEY")!, new Blog("https://github.com/cedx/akismet.net")) { IsTest = true };
 
 		var hamAuthor = new Author(ipAddress: "192.168.0.1") {
 			Name = "Akismet",

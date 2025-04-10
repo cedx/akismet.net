@@ -8,6 +8,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<Authors>CedX</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>akismet;api;client;comment;spam;validation</PackageTags>
+		<RepositoryUrl>https://github.com/cedx/akismet.net.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.Akismet</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -18,5 +26,6 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="Belin.Akismet.Tests" />
+		<None Include="../README.md" Pack="true" PackagePath="/" />
 	</ItemGroup>
 </Project>
