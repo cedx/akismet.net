@@ -9,10 +9,12 @@
 
 	<PropertyGroup>
 		<Authors>CedX</Authors>
+		<IncludeSymbols>true</IncludeSymbols>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>akismet;api;client;comment;spam;validation</PackageTags>
 		<RepositoryUrl>https://github.com/cedx/akismet.net.git</RepositoryUrl>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<PropertyGroup>
