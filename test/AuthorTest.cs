@@ -10,7 +10,7 @@ public sealed class AuthorTest {
 	public void ToDictionary() {
 		// It should return only the IP address with a newly created instance.
 		var map = new Author(ipAddress: "127.0.0.1").ToDictionary();
-		AreEqual(1, map.Count);
+		HasCount(1, map);
 		AreEqual("127.0.0.1", map["user_ip"]);
 
 		// It should return a non-empty map with an initialized instance.
@@ -22,7 +22,7 @@ public sealed class AuthorTest {
 		};
 
 		map = author.ToDictionary();
-		AreEqual(5, map.Count);
+		HasCount(5, map);
 		AreEqual("Cédric Belin", map["comment_author"]);
 		AreEqual("cedric@belin.io", map["comment_author_email"]);
 		AreEqual("https://belin.io/", map["comment_author_url"]);
