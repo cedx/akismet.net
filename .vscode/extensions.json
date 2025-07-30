@@ -1,6 +1,7 @@
 {
 	"recommendations": [
 		"humao.rest-client",
-		"ms-dotnettools.csdevkit"
+		"ms-dotnettools.csdevkit",
+		"redhat.vscode-xml"
 	]
 }
