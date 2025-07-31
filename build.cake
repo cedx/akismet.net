@@ -39,8 +39,8 @@ Task("test")
 
 Task("version")
 	.Description("Updates the version number in the sources.")
-	.Does(() => ReplaceInFile("src/client.cs", @"Version = ""\d+(\.\d+){2}"";", $"Version = \"{version}\";"))
-	.DoesForEach(GetFiles("*/*.csproj"), file => ReplaceInFile(file, @"<Version>\d+(\.\d+){2}</Version>", $"<Version>{version}</Version>"));
+	.Does(() => ReplaceInFile("src/client.cs", @"Version = ""\d+(\.\d+){2}.*"";", $"Version = \"{version}\";"))
+	.DoesForEach(GetFiles("*/*.csproj"), file => ReplaceInFile(file, @"<Version>\d+(\.\d+){2}.*</Version>", $"<Version>{version}</Version>"));
 
 Task("default")
 	.Description("The default task.")
