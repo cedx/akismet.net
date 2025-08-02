@@ -22,7 +22,7 @@
 		<AssemblyName>Belin.Akismet</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<OutDir>../lib</OutDir>
+		<OutDir>../bin</OutDir>
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
 
