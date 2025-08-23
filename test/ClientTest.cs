@@ -33,7 +33,7 @@ public sealed class ClientTest {
 		var hamAuthor = new Author(ipAddress: "192.168.0.1") {
 			Name = "Akismet",
 			Role = AuthorRole.Administrator,
-			Url = new Uri("https://belin.io"),
+			Url = new Uri("https://cedric-belin.fr"),
 			UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.0.0"
 		};
 

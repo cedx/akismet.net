@@ -16,16 +16,16 @@ public sealed class AuthorTest {
 		// It should return a non-empty map with an initialized instance.
 		var author = new Author(ipAddress: "192.168.0.1") {
 			Name = "Cédric Belin",
-			Email = "cedric@belin.io",
-			Url = new Uri("https://belin.io"),
+			Email = "contact@cedric-belin.fr",
+			Url = new Uri("https://cedric-belin.fr"),
 			UserAgent = "Mozilla/5.0"
 		};
 
 		map = author.ToDictionary();
 		HasCount(5, map);
 		AreEqual("Cédric Belin", map["comment_author"]);
-		AreEqual("cedric@belin.io", map["comment_author_email"]);
-		AreEqual("https://belin.io/", map["comment_author_url"]);
+		AreEqual("contact@cedric-belin.fr", map["comment_author_email"]);
+		AreEqual("https://cedric-belin.fr/", map["comment_author_url"]);
 		AreEqual("Mozilla/5.0", map["user_agent"]);
 		AreEqual("192.168.0.1", map["user_ip"]);
 	}
