@@ -1,6 +1,10 @@
 name: continuous-integration
 on: push
 
+defaults:
+  run:
+    shell: pwsh
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -11,9 +15,7 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9
-      - name: Install dependencies
-        run: dotnet tool restore
       - name: Run tests
-        run: dotnet cake --target=test
+        run: ./run.ps1 Test
         env:
           AKISMET_API_KEY: ${{secrets.AKISMET_API_KEY}}
