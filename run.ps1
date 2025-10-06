@@ -3,4 +3,4 @@ param ([switch] $release)
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
-. "$PSScriptRoot/tool/$($args.Count -eq 0 ? "Default" : $args[0]).ps1"
+. tool/$($args.Count -eq 0 ? "Default" : $args[0]).ps1
