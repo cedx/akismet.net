@@ -6,7 +6,7 @@ using System.Globalization;
 /// Tests the features of the <see cref="Comment"/> class.
 /// </summary>
 [TestClass]
-public sealed class CommentTest {
+public sealed class CommentTests {
 
 	[TestMethod]
 	public void ToDictionary() {

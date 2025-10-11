@@ -6,7 +6,7 @@ using System.Text;
 /// Tests the features of the <see cref="Blog"/> class.
 /// </summary>
 [TestClass]
-public sealed class BlogTest {
+public sealed class BlogTests {
 
 	[TestMethod]
 	public void ToDictionary() {

@@ -4,7 +4,7 @@ namespace Belin.Akismet;
 /// Tests the features of the <see cref="Author"/> class.
 /// </summary>
 [TestClass]
-public sealed class AuthorTest {
+public sealed class AuthorTests {
 
 	[TestMethod]
 	public void ToDictionary() {

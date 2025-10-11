@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /// Tests the features of the <see cref="Client"/> class.
 /// </summary>
 [TestClass]
-public sealed class ClientTest {
+public sealed class ClientTests {
 
 	/// <summary>
 	/// The client used to query the remote API.
