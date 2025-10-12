@@ -1,8 +1,5 @@
 namespace Belin.Akismet;
 
-using System;
-using System.Threading.Tasks;
-
 /// <summary>
 /// Tests the features of the <see cref="Client"/> class.
 /// </summary>
@@ -27,7 +24,7 @@ public sealed class ClientTests {
 	/// <summary>
 	/// Creates a new test.
 	/// </summary>
-	public ClientTest() {
+	public ClientTests() {
 		client = new Client(Environment.GetEnvironmentVariable("AKISMET_API_KEY")!, new Blog("https://github.com/cedx/akismet.net")) { IsTest = true };
 
 		var hamAuthor = new Author(ipAddress: "192.168.0.1") {
