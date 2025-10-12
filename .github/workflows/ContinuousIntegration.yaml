@@ -16,6 +16,6 @@ jobs:
         with:
           dotnet-version: 9
       - name: Run tests
-        run: ./run.ps1 Test
+        run: ./invoke.ps1 Test
         env:
           AKISMET_API_KEY: ${{secrets.AKISMET_API_KEY}}
