@@ -1,4 +1,4 @@
-Write-Output "Updating the version number in the sources..."
+"Updating the version number in the sources..."
 $version = (Import-PowerShellDataFile "Akismet.psd1").ModuleVersion
 (Get-Content "src/Client.cs") -replace 'Version = "\d+(\.\d+){2}"', "Version = ""$version""" | Out-File "src/Client.cs"
 foreach ($item in Get-ChildItem "*/*.csproj") {
