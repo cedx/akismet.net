@@ -14,7 +14,7 @@ public sealed class Comment(Author author) {
 	/// <summary>
 	/// The comment's content.
 	/// </summary>
-	public string Content { get; set; } = string.Empty;
+	public string Content { get; set; } = "";
 
 	/// <summary>
 	/// The context in which this comment was posted.
@@ -39,7 +39,7 @@ public sealed class Comment(Author author) {
 	/// <summary>
 	/// A string describing why the content is being rechecked.
 	/// </summary>
-	public string RecheckReason { get; set; } = string.Empty;
+	public string RecheckReason { get; set; } = "";
 
 	/// <summary>
 	/// The URL of the webpage that linked to the entry being requested.
@@ -49,7 +49,7 @@ public sealed class Comment(Author author) {
 	/// <summary>
 	/// The comment's type.
 	/// </summary>
-	public string Type { get; set; } = string.Empty;
+	public string Type { get; set; } = "";
 
 	/// <summary>
 	/// Converts this object into a dictionary.
