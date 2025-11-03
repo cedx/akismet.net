@@ -109,12 +109,12 @@ public class Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribut
 	/// <returns>The server response.</returns>
 	/// <exception cref="HttpRequestException">An error occurred while querying the end point.</exception>
 	private async Task<HttpResponseMessage> Fetch(string endpoint, IDictionary<string, string>? fields = null, CancellationToken cancellationToken = default) {
-		var postFields = Blog.ToDictionary();
-		postFields.Add("api_key", ApiKey);
-		if (IsTest) postFields.Add("is_test", "1");
-		if (fields is not null) foreach (var item in fields) postFields.Add(item.Key, item.Value);
+		var body = Blog.ToDictionary();
+		body.Add("api_key", ApiKey);
+		if (IsTest) body.Add("is_test", "1");
+		if (fields is not null) foreach (var item in fields) body.Add(item.Key, item.Value);
 
-		using var request = new HttpRequestMessage(HttpMethod.Post, new Uri(BaseUrl, endpoint)) { Content = new FormUrlEncodedContent(postFields) };
+		using var request = new HttpRequestMessage(HttpMethod.Post, new Uri(BaseUrl, endpoint)) { Content = new FormUrlEncodedContent(body) };
 		request.Headers.Add("User-Agent", UserAgent);
 
 		using var httpClient = new HttpClient();
