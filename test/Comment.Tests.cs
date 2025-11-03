@@ -25,7 +25,7 @@ public sealed class CommentTests {
 			Content = "A user comment.",
 			Date = DateTime.Parse("2000-01-01T00:00:00Z", styles: DateTimeStyles.RoundtripKind),
 			Referrer = new Uri("https://cedric-belin.fr"),
-			Type = "blog-post"
+			Type = CommentType.BlogPost
 		};
 
 		map = comment.ToDictionary();
