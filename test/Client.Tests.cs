@@ -62,10 +62,12 @@ public sealed class ClientTests {
 	}
 
 	[TestMethod]
-	public async Task SubmitHam() => await client.SubmitHam(ham);
+	public async Task SubmitHam() =>
+		await client.SubmitHam(ham);
 
 	[TestMethod]
-	public async Task SubmitSpam() => await client.SubmitSpam(spam);
+	public async Task SubmitSpam() =>
+		await client.SubmitSpam(spam);
 
 	[TestMethod]
 	public async Task VerifyKey() {
