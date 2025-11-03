@@ -16,14 +16,14 @@ public sealed class CommentTests {
 		AreEqual("127.0.0.1", map["user_ip"]);
 
 		// It should return a non-empty map with an initialized instance.
-		var author = new Author(ipAddress: "127.0.0.1") {
+		var author = new Author(ipAddress: "192.168.0.1") {
 			Name = "Cédric Belin",
 			UserAgent = "Doom/6.6.6"
 		};
 
 		var comment = new Comment(author) {
 			Content = "A user comment.",
-			Date = DateTime.Parse("2000-01-01T00:00:00Z", styles: DateTimeStyles.RoundtripKind),
+			Date = DateTime.Parse("2000-01-01T00:00:00Z", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind),
 			Referrer = new Uri("https://cedric-belin.fr"),
 			Type = CommentType.BlogPost
 		};
@@ -36,6 +36,6 @@ public sealed class CommentTests {
 		AreEqual("blog-post", map["comment_type"]);
 		AreEqual("https://cedric-belin.fr/", map["referrer"]);
 		AreEqual("Doom/6.6.6", map["user_agent"]);
-		AreEqual("127.0.0.1", map["user_ip"]);
+		AreEqual("192.168.0.1", map["user_ip"]);
 	}
 }
