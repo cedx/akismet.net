@@ -6,7 +6,7 @@ namespace Belin.Akismet;
 public enum CheckResult {
 
 	/// <summary>
-	/// Specifies the result of a comment check.
+	/// The comment is a ham.
 	/// </summary>
 	Ham,
 
