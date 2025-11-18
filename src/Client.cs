@@ -18,7 +18,7 @@ public class Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribut
 	/// <summary>
 	/// The package version.
 	/// </summary>
-	private const string Version = "1.1.0";
+	private const string Version = "2.0.0";
 
 	/// <summary>
 	/// The Akismet API key.
