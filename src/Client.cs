@@ -11,14 +11,14 @@ using System.Diagnostics.CodeAnalysis;
 public class Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribute.Uri)] string baseUrl = "https://rest.akismet.com") {
 
 	/// <summary>
+	/// The package version.
+	/// </summary>
+	public const string Version = "2.1.0";
+
+	/// <summary>
 	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
 	/// </summary>
 	private const string Success = "Thanks for making the web a better place.";
-
-	/// <summary>
-	/// The package version.
-	/// </summary>
-	private const string Version = "2.1.0";
 
 	/// <summary>
 	/// The Akismet API key.
