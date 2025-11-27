@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.1.1](https://github.com/cedx/akismet.net/compare/v2.1.0...v2.1.1)
+- Fixed a packaging issue.
+
 ## Version [2.1.0](https://github.com/cedx/akismet.net/compare/v2.0.0...v2.1.0)
 - Changed the visibility of the `Client.Version` constant to `public`.
 
