@@ -13,7 +13,7 @@ public class Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribut
 	/// <summary>
 	/// The package version.
 	/// </summary>
-	public const string Version = "2.1.0";
+	public const string Version = "2.1.1";
 
 	/// <summary>
 	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
