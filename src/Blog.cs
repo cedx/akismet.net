@@ -30,7 +30,7 @@ public sealed class Blog(string url) {
 	internal Dictionary<string, string> ToDictionary() {
 		var map = new Dictionary<string, string> { ["blog"] = Url.ToString() };
 		if (Charset is not null) map["blog_charset"] = Charset.WebName;
-		if (Languages.Count != 0) map["blog_lang"] = string.Join(',', Languages);
+		if (Languages.Count > 0) map["blog_lang"] = string.Join(',', Languages);
 		return map;
 	}
 }
