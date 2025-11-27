@@ -21,7 +21,7 @@ public sealed class Blog(string url) {
 	/// <summary>
 	/// The blog or site URL.
 	/// </summary>
-	public Uri Url { get; set; } = new Uri(url);
+	public Uri Url { get; set; } = new Uri(url, UriKind.Absolute);
 
 	/// <summary>
 	/// Converts this object into a dictionary.
