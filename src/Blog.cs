@@ -22,7 +22,20 @@ public sealed class Blog(Uri url) {
 	/// <summary>
 	/// The blog or site URL.
 	/// </summary>
-	public Uri Url { get; set; } = new Uri(url, UriKind.Absolute);
+	public Uri Url { get; set; } = url;
+
+	/// <summary>
+	/// Creates a new blog.
+	/// </summary>
+	/// <param name="url">The blog or site URL.</param>
+	public Blog([StringSyntax(StringSyntaxAttribute.Uri)] string url): this(new Uri(url, UriKind.Absolute)) {}
+
+	/// <summary>
+	/// Creates a new blog from the specified string.
+	/// </summary>
+	/// <param name="url">The blog or site URL.</param>
+	/// <returns>The blog corresponding to the specified string.</returns>
+	public static implicit operator Blog(string url) => new(url);
 
 	/// <summary>
 	/// Converts this object into a dictionary.

@@ -7,7 +7,7 @@ try {
 	var author = new Author(ipAddress: "192.168.123.456") { UserAgent = "Spam Bot/6.6.6" };
 	var comment = new Comment(author) { Content = "Spam!" };
 
-	var client = new Client("123YourAPIKey", new Blog("https://www.yourblog.com"));
+	var client = new Client("123YourAPIKey", "https://www.yourblog.com");
 	await client.SubmitSpam(comment);
 
 	Console.WriteLine("The comment was successfully submitted as spam.");
