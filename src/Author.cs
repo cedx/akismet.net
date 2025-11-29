@@ -6,7 +6,7 @@ using System.Net;
 /// Represents the author of a comment.
 /// </summary>
 /// <param name="ipAddress">The author's IP address.</param>
-public sealed class Author(string ipAddress) {
+public sealed class Author(IPAddress ipAddress) {
 
 	/// <summary>
 	/// The author's mail address. If you set it to <c>"akismet-guaranteed-spam@example.com"</c>, Akismet will always return <see langword="true"/>.
@@ -16,7 +16,7 @@ public sealed class Author(string ipAddress) {
 	/// <summary>
 	/// The author's IP address.
 	/// </summary>
-	public IPAddress IPAddress { get; set; } = IPAddress.Parse(ipAddress);
+	public IPAddress IPAddress { get; set; } = ipAddress;
 
 	/// <summary>
 	/// The author's name. If you set it to <c>"viagra-test-123"</c>, Akismet will always return <see langword="true"/>.
@@ -37,6 +37,12 @@ public sealed class Author(string ipAddress) {
 	/// The author's user agent, that is the string identifying the Web browser used to submit comments.
 	/// </summary>
 	public string UserAgent { get; set; } = "";
+
+	/// <summary>
+	/// Creates a new author.
+	/// </summary>
+	/// <param name="ipAddress">The author's IP address.</param>
+	public Author(string ipAddress): this(IPAddress.Parse(ipAddress)) {}
 
 	/// <summary>
 	/// Converts this object into a dictionary.

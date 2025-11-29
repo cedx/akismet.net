@@ -8,12 +8,12 @@ using System.Diagnostics.CodeAnalysis;
 /// <param name="apiKey">The Akismet API key.</param>
 /// <param name="blog">The front page or home URL of the instance making requests.</param>
 /// <param name="baseUrl">The base URL of the remote API endpoint.</param>
-public class Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribute.Uri)] string baseUrl = "https://rest.akismet.com") {
+public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 
 	/// <summary>
 	/// The package version.
 	/// </summary>
-	public const string Version = "2.1.1";
+	public const string Version = "2.2.0";
 
 	/// <summary>
 	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
@@ -23,27 +23,36 @@ public class Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribut
 	/// <summary>
 	/// The Akismet API key.
 	/// </summary>
-	public string ApiKey => apiKey;
+	public string ApiKey { get; set; } = apiKey;
 
 	/// <summary>
 	/// The base URL of the remote API endpoint.
 	/// </summary>
-	public Uri BaseUrl => new(baseUrl.EndsWith('/') ? baseUrl : $"{baseUrl}/");
+	public Uri BaseUrl { get; set; } = baseUrl ?? new Uri("https://rest.akismet.com/");
 
 	/// <summary>
 	/// The front page or home URL of the instance making requests.
 	/// </summary>
-	public Blog Blog => blog;
+	public Blog Blog { get; set; } = blog;
 
 	/// <summary>
 	/// Value indicating whether the client operates in test mode.
 	/// </summary>
-	public bool IsTest { get; init; } = false;
+	public bool IsTest { get; set; } = false;
 
 	/// <summary>
 	/// The user agent string to use when making requests.
 	/// </summary>
-	public string UserAgent { get; init; } = $".NET/{Environment.Version.ToString(3)} | Akismet/{Version}";
+	public string UserAgent { get; set; } = $".NET/{Environment.Version.ToString(3)} | Akismet/{Version}";
+
+	/// <summary>
+	/// Creates a new client.
+	/// </summary>
+	/// <param name="apiKey">The Akismet API key.</param>
+	/// <param name="blog">The front page or home URL of the instance making requests.</param>
+	/// <param name="baseUrl">The base URL of the remote API endpoint.</param>
+	public Client(string apiKey, Blog blog, [StringSyntax(StringSyntaxAttribute.Uri)] string baseUrl):
+		this(apiKey, blog, new Uri(baseUrl, UriKind.Absolute)) {}
 
 	/// <summary>
 	/// Checks the specified comment against the service database, and returns a value indicating whether it is spam.

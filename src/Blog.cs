@@ -1,12 +1,13 @@
 namespace Belin.Akismet;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 /// <summary>
 /// Represents the front page or home URL transmitted when making requests.
 /// </summary>
 /// <param name="url">The blog or site URL.</param>
-public sealed class Blog(string url) {
+public sealed class Blog(Uri url) {
 
 	/// <summary>
 	/// The character encoding for the values included in comments.
