@@ -13,7 +13,7 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 	/// <summary>
 	/// The package version.
 	/// </summary>
-	public const string Version = "2.2.0";
+	public const string Version = "2.3.0";
 
 	/// <summary>
 	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
