@@ -11,12 +11,12 @@ public sealed class BlogTests {
 	[TestMethod]
 	public void ToDictionary() {
 		// It should return only the blog URL with a newly created instance.
-		var map = new Blog(url: "https://github.com/cedx/akismet.net").ToDictionary();
+		var map = new Blog("https://github.com/cedx/akismet.net").ToDictionary();
 		HasCount(1, map);
 		AreEqual("https://github.com/cedx/akismet.net", map["blog"]);
 
 		// It should return a non-empty map with an initialized instance.
-		map = new Blog(url: "https://github.com/cedx/akismet.net") { Charset = Encoding.UTF8, Languages = ["en", "fr"] }.ToDictionary();
+		map = new Blog("https://github.com/cedx/akismet.net") { Charset = Encoding.UTF8, Languages = ["en", "fr"] }.ToDictionary();
 		HasCount(3, map);
 		AreEqual("https://github.com/cedx/akismet.net", map["blog"]);
 		AreEqual("utf-8", map["blog_charset"]);

@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.3.0](https://github.com/cedx/akismet.net/compare/v2.2.0...v2.3.0)
+- Added an implicit conversion operator from `Uri` to the `Blog` class.
+
 ## Version [2.2.0](https://github.com/cedx/akismet.net/compare/v2.1.1...v2.2.0)
 - Added constructor overloads to the `Author`, `Blog` and `Client` classes.
 - Added an implicit conversion operator from `string` to the `Blog` class.
