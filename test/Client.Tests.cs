@@ -22,10 +22,17 @@ public sealed class ClientTests {
 	private readonly Comment spam;
 
 	/// <summary>
+	/// The test context.
+	/// </summary>
+	private readonly TestContext testContext;
+
+	/// <summary>
 	/// Creates a new test.
 	/// </summary>
-	public ClientTests() {
+	/// <param name="testContext">The test context.</param>
+	public ClientTests(TestContext testContext) {
 		client = new Client(Environment.GetEnvironmentVariable("AKISMET_API_KEY")!, "https://github.com/cedx/akismet.net") { IsTest = true };
+		this.testContext = testContext;
 
 		var hamAuthor = new Author(ipAddress: "192.168.0.1") {
 			Name = "Akismet",
@@ -55,25 +62,25 @@ public sealed class ClientTests {
 
 	[TestMethod]
 	public async Task CheckComment() {
-		AreEqual(CheckResult.Ham, await client.CheckComment(ham));
+		AreEqual(CheckResult.Ham, await client.CheckComment(ham, testContext.CancellationToken));
 
-		var result = await client.CheckComment(spam);
+		var result = await client.CheckComment(spam, testContext.CancellationToken);
 		IsTrue(result == CheckResult.Spam || result == CheckResult.PervasiveSpam);
 	}
 
 	[TestMethod]
 	public async Task SubmitHam() =>
-		await client.SubmitHam(ham);
+		await client.SubmitHam(ham, testContext.CancellationToken);
 
 	[TestMethod]
 	public async Task SubmitSpam() =>
-		await client.SubmitSpam(spam);
+		await client.SubmitSpam(spam, testContext.CancellationToken);
 
 	[TestMethod]
 	public async Task VerifyKey() {
-		IsTrue(await client.VerifyKey());
+		IsTrue(await client.VerifyKey(testContext.CancellationToken));
 
 		var newClient = new Client("0123456789-ABCDEF", client.Blog) { IsTest = true };
-		IsFalse(await newClient.VerifyKey());
+		IsFalse(await newClient.VerifyKey(testContext.CancellationToken));
 	}
 }
