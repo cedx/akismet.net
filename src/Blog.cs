@@ -35,7 +35,14 @@ public sealed class Blog(Uri url) {
 	/// </summary>
 	/// <param name="url">The blog or site URL.</param>
 	/// <returns>The blog corresponding to the specified string.</returns>
-	public static implicit operator Blog(string url) => new(url);
+	public static implicit operator Blog([StringSyntax(StringSyntaxAttribute.Uri)] string url) => new(url);
+
+	/// <summary>
+	/// Creates a new blog from the specified URI.
+	/// </summary>
+	/// <param name="url">The blog or site URL.</param>
+	/// <returns>The blog corresponding to the specified URI.</returns>
+	public static implicit operator Blog(Uri url) => new(url);
 
 	/// <summary>
 	/// Converts this object into a dictionary.
