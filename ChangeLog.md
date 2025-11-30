@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.4.0](https://github.com/cedx/akismet.net/compare/v2.3.0...v2.4.0)
+- Restored support for [.NET](https://dotnet.microsoft.com/en-us) 9.
+
 ## Version [2.3.0](https://github.com/cedx/akismet.net/compare/v2.2.0...v2.3.0)
 - Added an implicit conversion operator from `Uri` to the `Blog` class.
 
