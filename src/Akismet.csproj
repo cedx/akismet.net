@@ -23,7 +23,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<OutDir>../bin</OutDir>
-		<TargetFramework>net10.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
