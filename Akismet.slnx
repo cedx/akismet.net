@@ -24,6 +24,12 @@
 		<File Path="share/SubmitSpam.http" />
 		<File Path="share/VerifyKey.http" />
 	</Folder>
+	<Folder Name="/Examples/Cmdlets/">
+		<File Path="example/Cmdlets/Submit-Ham.ps1" />
+		<File Path="example/Cmdlets/Submit-Spam.ps1" />
+		<File Path="example/Cmdlets/Test-ApiKey.ps1" />
+		<File Path="example/Cmdlets/Test-Comment.ps1" />
+	</Folder>
 	<Folder Name="/Scripts/">
 		<File Path="Debug.ps1" />
 		<File Path="Invoke.ps1" />
