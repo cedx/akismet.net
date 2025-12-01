@@ -3,7 +3,7 @@
 		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
 		<Product>Akismet for .NET</Product>
-		<Version>2.4.0</Version>
+		<Version>4.0.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -21,6 +21,7 @@
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.*" />
 		<PackageReference Include="MSTest" Version="4.*" />
 		<ProjectReference Include="../src/Akismet/Akismet.csproj" />
+		<ProjectReference Include="../src/Akismet.Cmdlets/Akismet.Cmdlets.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
