@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [3.0.0](https://github.com/cedx/akismet.net/compare/v2.4.0...v3.0.0)
+- Merged the [C#](https://learn.microsoft.com/en-us/dotnet/csharp) and [PowerShell](https://learn.microsoft.com/en-us/powershell) projects into one solution.
+
 ## Version [2.4.0](https://github.com/cedx/akismet.net/compare/v2.3.0...v2.4.0)
 - Restored support for [.NET](https://dotnet.microsoft.com/en-us) 9.
 

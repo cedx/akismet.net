@@ -1,5 +1,6 @@
 # Akismet for .NET
-Prevent comment spam using [Akismet](https://akismet.com) service, in [C#](https://learn.microsoft.com/en-us/dotnet/csharp).
+Prevent comment spam using [Akismet](https://akismet.com) service,
+in [C#](https://learn.microsoft.com/en-us/dotnet/csharp) and [PowerShell](https://learn.microsoft.com/en-us/powershell).
 
 ## Documentation
 - [User guide](https://github.com/cedx/akismet.net/wiki)
