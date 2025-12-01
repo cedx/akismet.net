@@ -22,6 +22,5 @@ public class SubmitSpam: Cmdlet {
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
-	protected override void ProcessRecord() =>
-		Client.SubmitSpam(Comment).GetAwaiter().GetResult();
+	protected override void ProcessRecord() => Client.SubmitSpam(Comment).Wait();
 }
