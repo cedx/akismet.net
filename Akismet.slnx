@@ -25,6 +25,7 @@
 		<File Path="share/VerifyKey.http" />
 	</Folder>
 	<Folder Name="/Scripts/">
+		<File Path="Debug.ps1" />
 		<File Path="Invoke.ps1" />
 	</Folder>
 	<Folder Name="/Scripts/Tools/">
