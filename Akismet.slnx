@@ -10,7 +10,6 @@
 		<File Path="Authors.txt" />
 		<File Path="ChangeLog.md" />
 		<File Path="License.md" />
-		<File Path="ReadMe.md" />
 	</Folder>
 	<Folder Name="/Examples/">
 		<File Path="example/CheckComment.cs" />
