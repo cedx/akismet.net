@@ -11,9 +11,9 @@ using System.Diagnostics.CodeAnalysis;
 public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 
 	/// <summary>
-	/// The package version.
+	/// The assembly version.
 	/// </summary>
-	public const string Version = "3.0.0";
+	public static Version Version => typeof(Client).Assembly.GetName().Version!;
 
 	/// <summary>
 	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
@@ -38,12 +38,12 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 	/// <summary>
 	/// Value indicating whether the client operates in test mode.
 	/// </summary>
-	public bool IsTest { get; set; } = false;
+	public bool IsTest { get; set; }
 
 	/// <summary>
 	/// The user agent string to use when making requests.
 	/// </summary>
-	public string UserAgent { get; set; } = $".NET/{Environment.Version.ToString(3)} | Akismet/{Version}";
+	public string UserAgent { get; set; } = $".NET/{Environment.Version.ToString(3)} | Akismet/{Version.ToString(3)}";
 
 	/// <summary>
 	/// Creates a new client.
@@ -123,11 +123,10 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 		if (IsTest) body.Add("is_test", "1");
 		if (fields is not null) foreach (var item in fields) body.Add(item.Key, item.Value);
 
-		using var request = new HttpRequestMessage(HttpMethod.Post, new Uri(BaseUrl, endpoint)) { Content = new FormUrlEncodedContent(body) };
-		request.Headers.Add("User-Agent", UserAgent);
-
 		using var httpClient = new HttpClient();
-		var response = await httpClient.SendAsync(request, cancellationToken);
+		httpClient.DefaultRequestHeaders.Add("User-Agent", UserAgent);
+
+		var response = await httpClient.PostAsync(new Uri(BaseUrl, endpoint), new FormUrlEncodedContent(body), cancellationToken);
 		response.EnsureSuccessStatusCode();
 		if (response.Headers.TryGetValues("X-akismet-alert-msg", out var alertMessages)) throw new HttpRequestException(alertMessages.First());
 		if (response.Headers.TryGetValues("X-akismet-debug-help", out var debugHelps)) throw new HttpRequestException(debugHelps.First());
