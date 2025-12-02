@@ -5,7 +5,7 @@ namespace Belin.Akismet.Cmdlets;
 /// </summary>
 [Cmdlet(VerbsLifecycle.Submit, "Spam")]
 [OutputType(typeof(void))]
-public class SubmitSpam: Cmdlet {
+public class SubmitSpamCommand: Cmdlet {
 
 	/// <summary>
 	/// The Akismet client used to submit the comment.

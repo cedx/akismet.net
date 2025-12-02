@@ -5,7 +5,7 @@ namespace Belin.Akismet.Cmdlets;
 /// </summary>
 [Cmdlet(VerbsCommon.New, "Client")]
 [OutputType(typeof(Client))]
-public class NewClient: Cmdlet {
+public class NewClientCommand: Cmdlet {
 
 	/// <summary>
 	/// The Akismet API key.

@@ -5,7 +5,7 @@ namespace Belin.Akismet.Cmdlets;
 /// </summary>
 [Cmdlet(VerbsCommon.New, "Comment")]
 [OutputType(typeof(Comment))]
-public class NewComment: Cmdlet {
+public class NewCommentCommand: Cmdlet {
 
 	/// <summary>
 	/// The comment's author.

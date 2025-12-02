@@ -7,7 +7,7 @@ using System.Text;
 /// </summary>
 [Cmdlet(VerbsCommon.New, "Blog")]
 [OutputType(typeof(Blog))]
-public class NewBlog: Cmdlet {
+public class NewBlogCommand: Cmdlet {
 
 	/// <summary>
 	/// The character encoding for the values included in comments.

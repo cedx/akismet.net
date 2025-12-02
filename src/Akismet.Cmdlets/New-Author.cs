@@ -7,7 +7,7 @@ using System.Net;
 /// </summary>
 [Cmdlet(VerbsCommon.New, "Author")]
 [OutputType(typeof(Author))]
-public class NewAuthor: Cmdlet {
+public class NewAuthorCommand: Cmdlet {
 
 	/// <summary>
 	/// The author's mail address. If you set it to `"akismet-guaranteed-spam@example.com"`, Akismet will always return `$true`.

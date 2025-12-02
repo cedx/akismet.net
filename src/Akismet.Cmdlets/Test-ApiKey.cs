@@ -5,7 +5,7 @@ namespace Belin.Akismet.Cmdlets;
 /// </summary>
 [Cmdlet(VerbsDiagnostic.Test, "ApiKey")]
 [OutputType(typeof(bool))]
-public class TestApiKey: Cmdlet {
+public class TestApiKeyCommand: Cmdlet {
 
 	/// <summary>
 	/// The Akismet API key.

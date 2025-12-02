@@ -5,7 +5,7 @@ namespace Belin.Akismet.Cmdlets;
 /// </summary>
 [Cmdlet(VerbsDiagnostic.Test, "Comment")]
 [OutputType(typeof(CheckResult))]
-public class TestComment: Cmdlet {
+public class TestCommentCommand: Cmdlet {
 
 	/// <summary>
 	/// The Akismet client used to submit the comment.
