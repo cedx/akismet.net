@@ -1,5 +1,5 @@
 "Running the test suite..."
-dotnet test --results-directory var
+dotnet test --settings .runsettings
 pwsh -Command {
 	Import-Module Pester
 	Invoke-Pester test
