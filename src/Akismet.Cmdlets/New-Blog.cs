@@ -37,7 +37,7 @@ public class NewBlogCommand: Cmdlet {
 }
 
 /// <summary>
-/// Validates the <see cref="NewBlog.Charset"/> parameter.
+/// Validates the <see cref="NewBlogCommand.Charset"/> parameter.
 /// </summary>
 internal class ValidateCharsetAttribute: ValidateArgumentsAttribute {
 
