@@ -23,6 +23,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<OutDir>../../bin</OutDir>
+		<RootNamespace>Belin.Akismet</RootNamespace>
 		<TargetFramework>net9.0</TargetFramework>
 	</PropertyGroup>
 
