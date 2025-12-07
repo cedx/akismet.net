@@ -23,5 +23,5 @@ public class TestApiKeyCommand: Cmdlet {
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() =>
-		WriteObject(new Client(ApiKey, Blog).VerifyKey().GetAwaiter().GetResult());
+		WriteObject(new Client(ApiKey, Blog).VerifyKeyAsync().GetAwaiter().GetResult());
 }

@@ -22,5 +22,5 @@ public class SubmitHamCommand: Cmdlet {
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
-	protected override void ProcessRecord() => Client.SubmitHam(Comment).Wait();
+	protected override void ProcessRecord() => Client.SubmitHamAsync(Comment).Wait();
 }

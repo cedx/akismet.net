@@ -62,25 +62,25 @@ public sealed class ClientTests {
 
 	[TestMethod]
 	public async Task CheckComment() {
-		AreEqual(CheckResult.Ham, await client.CheckComment(ham, testContext.CancellationToken));
+		AreEqual(CheckResult.Ham, await client.CheckCommentAsync(ham, testContext.CancellationToken));
 
-		var result = await client.CheckComment(spam, testContext.CancellationToken);
+		var result = await client.CheckCommentAsync(spam, testContext.CancellationToken);
 		IsTrue(result == CheckResult.Spam || result == CheckResult.PervasiveSpam);
 	}
 
 	[TestMethod]
 	public async Task SubmitHam() =>
-		await client.SubmitHam(ham, testContext.CancellationToken);
+		await client.SubmitHamAsync(ham, testContext.CancellationToken);
 
 	[TestMethod]
 	public async Task SubmitSpam() =>
-		await client.SubmitSpam(spam, testContext.CancellationToken);
+		await client.SubmitSpamAsync(spam, testContext.CancellationToken);
 
 	[TestMethod]
 	public async Task VerifyKey() {
-		IsTrue(await client.VerifyKey(testContext.CancellationToken));
+		IsTrue(await client.VerifyKeyAsync(testContext.CancellationToken));
 
 		var newClient = new Client("0123456789-ABCDEF", client.Blog) { IsTest = true };
-		IsFalse(await newClient.VerifyKey(testContext.CancellationToken));
+		IsFalse(await newClient.VerifyKeyAsync(testContext.CancellationToken));
 	}
 }

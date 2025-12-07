@@ -58,15 +58,27 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 	/// Checks the specified comment against the service database, and returns a value indicating whether it is spam.
 	/// </summary>
 	/// <param name="comment">The comment to be submitted.</param>
+	/// <returns>A value indicating whether the specified comment is spam.</returns>
+	public CheckResult CheckComment(Comment comment) => CheckCommentAsync(comment, CancellationToken.None).GetAwaiter().GetResult();
+
+	/// <summary>
+	/// Checks the specified comment against the service database, and returns a value indicating whether it is spam.
+	/// </summary>
+	/// <param name="comment">The comment to be submitted.</param>
 	/// <param name="cancellationToken">The token to cancel the operation.</param>
 	/// <returns>A value indicating whether the specified comment is spam.</returns>
-	/// <exception cref="HttpRequestException">The remote server returned an invalid response.</exception>
-	public async Task<CheckResult> CheckComment(Comment comment, CancellationToken cancellationToken = default) {
+	public async Task<CheckResult> CheckCommentAsync(Comment comment, CancellationToken cancellationToken = default) {
 		using var response = await Fetch("1.1/comment-check", comment.ToDictionary(), cancellationToken);
 		if (await response.Content.ReadAsStringAsync(cancellationToken) == "false") return CheckResult.Ham;
 		if (!response.Headers.TryGetValues("X-akismet-pro-tip", out var proTips)) return CheckResult.Spam;
 		return proTips.First() == "discard" ? CheckResult.PervasiveSpam : CheckResult.Spam;
 	}
+	
+	/// <summary>
+	/// Submits the specified comment that was incorrectly marked as spam but should not have been.
+	/// </summary>
+	/// <param name="comment">The comment to be submitted.</param>
+	public void SubmitHam(Comment comment) => SubmitHamAsync(comment, CancellationToken.None).GetAwaiter().GetResult();
 
 	/// <summary>
 	/// Submits the specified comment that was incorrectly marked as spam but should not have been.
@@ -75,11 +87,17 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 	/// <param name="cancellationToken">The token to cancel the operation.</param>
 	/// <returns>Completes once the comment has been submitted.</returns>
 	/// <exception cref="HttpRequestException">The remote server returned an invalid response.</exception>
-	public async Task SubmitHam(Comment comment, CancellationToken cancellationToken = default) {
+	public async Task SubmitHamAsync(Comment comment, CancellationToken cancellationToken = default) {
 		using var response = await Fetch("1.1/submit-ham", comment.ToDictionary(), cancellationToken);
 		var body = await response.Content.ReadAsStringAsync(cancellationToken);
 		if (body != Success) throw new HttpRequestException("Invalid server response.");
 	}
+	
+	/// <summary>
+	/// Submits the specified comment that was not marked as spam but should have been.
+	/// </summary>
+	/// <param name="comment">The comment to be submitted.</param>
+	public void SubmitSpam(Comment comment) => SubmitSpamAsync(comment, CancellationToken.None).GetAwaiter().GetResult();
 
 	/// <summary>
 	/// Submits the specified comment that was not marked as spam but should have been.
@@ -88,18 +106,24 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 	/// <param name="cancellationToken">The token to cancel the operation.</param>
 	/// <returns>Completes once the comment has been submitted.</returns>
 	/// <exception cref="HttpRequestException">The remote server returned an invalid response.</exception>
-	public async Task SubmitSpam(Comment comment, CancellationToken cancellationToken = default) {
+	public async Task SubmitSpamAsync(Comment comment, CancellationToken cancellationToken = default) {
 		using var response = await Fetch("1.1/submit-spam", comment.ToDictionary(), cancellationToken);
 		var body = await response.Content.ReadAsStringAsync(cancellationToken);
 		if (body != Success) throw new HttpRequestException("Invalid server response.");
 	}
+	
+	/// <summary>
+	/// Checks the API key against the service database, and returns a value indicating whether it is valid.
+	/// </summary>
+	/// <returns><see langword="true"/> if the specified API key is valid, otherwise <see langword="false"/>.</returns>
+	public bool VerifyKey() => VerifyKeyAsync(CancellationToken.None).GetAwaiter().GetResult();
 
 	/// <summary>
 	/// Checks the API key against the service database, and returns a value indicating whether it is valid.
 	/// </summary>
 	/// <param name="cancellationToken">The token to cancel the operation.</param>
 	/// <returns><see langword="true"/> if the specified API key is valid, otherwise <see langword="false"/>.</returns>
-	public async Task<bool> VerifyKey(CancellationToken cancellationToken = default) {
+	public async Task<bool> VerifyKeyAsync(CancellationToken cancellationToken = default) {
 		try {
 			using var response = await Fetch("1.1/verify-key", cancellationToken: cancellationToken);
 			return await response.Content.ReadAsStringAsync(cancellationToken) == "valid";
