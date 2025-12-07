@@ -73,7 +73,7 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 		if (!response.Headers.TryGetValues("X-akismet-pro-tip", out var proTips)) return CheckResult.Spam;
 		return proTips.First() == "discard" ? CheckResult.PervasiveSpam : CheckResult.Spam;
 	}
-	
+
 	/// <summary>
 	/// Submits the specified comment that was incorrectly marked as spam but should not have been.
 	/// </summary>
@@ -92,7 +92,7 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 		var body = await response.Content.ReadAsStringAsync(cancellationToken);
 		if (body != Success) throw new HttpRequestException("Invalid server response.");
 	}
-	
+
 	/// <summary>
 	/// Submits the specified comment that was not marked as spam but should have been.
 	/// </summary>
@@ -111,7 +111,7 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 		var body = await response.Content.ReadAsStringAsync(cancellationToken);
 		if (body != Success) throw new HttpRequestException("Invalid server response.");
 	}
-	
+
 	/// <summary>
 	/// Checks the API key against the service database, and returns a value indicating whether it is valid.
 	/// </summary>

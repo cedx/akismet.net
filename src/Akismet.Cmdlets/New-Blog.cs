@@ -47,10 +47,10 @@ internal class ValidateCharsetAttribute: ValidateArgumentsAttribute {
 	/// <param name="arguments">The argument value to validate.</param>
 	/// <param name="engineIntrinsics">The engine APIs for the context under which the prerequisite is being evaluated.</param>
 	/// <exception cref="ValidationMetadataException">The validation failed.</exception>
-  protected override void Validate(object arguments, EngineIntrinsics engineIntrinsics) {
+	protected override void Validate(object arguments, EngineIntrinsics engineIntrinsics) {
 		var charset = arguments as string;
 		if (string.IsNullOrWhiteSpace(charset)) return;
 		if (Encoding.GetEncodings().Any(value => charset.Equals(value.GetEncoding().WebName, StringComparison.OrdinalIgnoreCase))) return;
 		throw new ValidationMetadataException("The character encoding is invalid.");
-  }
+	}
 }
