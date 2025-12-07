@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [4.0.0](https://github.com/cedx/akismet.net/compare/v3.0.0...v4.0.0)
+- Breaking change: added the `Async` suffix to the asynchronous methods of the `Client` class.
+- Added synchronous methods to the `Client` class.
+
 ## Version [3.0.0](https://github.com/cedx/akismet.net/compare/v2.4.0...v3.0.0)
 - Merged the [C#](https://learn.microsoft.com/en-us/dotnet/csharp) and [PowerShell](https://learn.microsoft.com/en-us/powershell) projects into one solution.
 
