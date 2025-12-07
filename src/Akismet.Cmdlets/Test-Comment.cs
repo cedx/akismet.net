@@ -22,6 +22,5 @@ public class TestCommentCommand: Cmdlet {
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
-	protected override void ProcessRecord() =>
-		WriteObject(Client.CheckCommentAsync(Comment).GetAwaiter().GetResult());
+	protected override void ProcessRecord() => WriteObject(Client.CheckComment(Comment));
 }
