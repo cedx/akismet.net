@@ -10,7 +10,7 @@ try {
 
 	var comment = new Comment(author) { Content = "I'm testing out the Service API." };
 	var client = new Client("123YourAPIKey", "https://www.yourblog.com");
-	await client.SubmitHam(comment);
+	await client.SubmitHamAsync(comment);
 
 	Console.WriteLine("The comment was successfully submitted as ham.");
 }

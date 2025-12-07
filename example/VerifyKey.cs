@@ -5,7 +5,7 @@ using System.Net.Http;
 // Verifies an Akismet API key.
 try {
 	var client = new Client("123YourAPIKey", "https://www.yourblog.com");
-	var isValid = await client.VerifyKey();
+	var isValid = await client.VerifyKeyAsync();
 	Console.WriteLine(isValid ? "The API key is valid." : "The API key is invalid.");
 }
 catch (HttpRequestException e) {
