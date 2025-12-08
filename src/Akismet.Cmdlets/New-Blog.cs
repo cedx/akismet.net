@@ -5,8 +5,7 @@ using System.Text;
 /// <summary>
 /// Creates a new blog.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "Blog")]
-[OutputType(typeof(Blog))]
+[Cmdlet(VerbsCommon.New, "Blog"), OutputType(typeof(Blog))]
 public class NewBlogCommand: Cmdlet {
 
 	/// <summary>

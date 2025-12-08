@@ -3,8 +3,7 @@ namespace Belin.Akismet.Cmdlets;
 /// <summary>
 /// Creates a new Akismet client.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "Client")]
-[OutputType(typeof(Client))]
+[Cmdlet(VerbsCommon.New, "Client"), OutputType(typeof(Client))]
 public class NewClientCommand: Cmdlet {
 
 	/// <summary>

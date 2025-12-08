@@ -5,8 +5,7 @@ using System.Net;
 /// <summary>
 /// Creates a new author.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "Author")]
-[OutputType(typeof(Author))]
+[Cmdlet(VerbsCommon.New, "Author"), OutputType(typeof(Author))]
 public class NewAuthorCommand: Cmdlet {
 
 	/// <summary>

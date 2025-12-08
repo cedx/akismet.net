@@ -3,8 +3,7 @@ namespace Belin.Akismet.Cmdlets;
 /// <summary>
 /// Creates a new comment.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "Comment")]
-[OutputType(typeof(Comment))]
+[Cmdlet(VerbsCommon.New, "Comment"), OutputType(typeof(Comment))]
 public class NewCommentCommand: Cmdlet {
 
 	/// <summary>
