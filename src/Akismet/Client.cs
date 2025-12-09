@@ -43,7 +43,7 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 	/// <summary>
 	/// The user agent string to use when making requests.
 	/// </summary>
-	public string UserAgent { get; set; } = $".NET/{Environment.Version.ToString(3)} | Akismet/{Version.ToString(3)}";
+	public string UserAgent { get; set; } = $".NET/{Environment.Version.ToString(3)} | Belin.Akismet/{Version.ToString(3)}";
 
 	/// <summary>
 	/// Creates a new client.
