@@ -19,17 +19,17 @@
 		<File Path="example/SubmitSpam.cs" />
 		<File Path="example/VerifyKey.cs" />
 	</Folder>
-	<Folder Name="/Shared/">
-		<File Path="share/CheckComment.http" />
-		<File Path="share/SubmitHam.http" />
-		<File Path="share/SubmitSpam.http" />
-		<File Path="share/VerifyKey.http" />
-	</Folder>
 	<Folder Name="/Examples/Cmdlets/">
 		<File Path="example/Cmdlets/Submit-Ham.ps1" />
 		<File Path="example/Cmdlets/Submit-Spam.ps1" />
 		<File Path="example/Cmdlets/Test-ApiKey.ps1" />
 		<File Path="example/Cmdlets/Test-Comment.ps1" />
+	</Folder>
+	<Folder Name="/HttpRequests/">
+		<File Path="share/CheckComment.http" />
+		<File Path="share/SubmitHam.http" />
+		<File Path="share/SubmitSpam.http" />
+		<File Path="share/VerifyKey.http" />
 	</Folder>
 	<Folder Name="/Scripts/">
 		<File Path="Debug.ps1" />
