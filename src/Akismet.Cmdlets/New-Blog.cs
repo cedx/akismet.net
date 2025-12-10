@@ -12,7 +12,7 @@ public class NewBlogCommand: Cmdlet {
 	/// The character encoding for the values included in comments.
 	/// </summary>
 	[Parameter, ValidateCharset]
-	public string? Charset { get; set; }
+	public string Charset { get; set; } = "";
 
 	/// <summary>
 	/// The languages in use on the blog or site, in ISO 639-1 format.
