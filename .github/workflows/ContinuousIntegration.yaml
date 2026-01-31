@@ -19,7 +19,7 @@ jobs:
         run: |
           Push-Location var
           Invoke-WebRequest "https://aka.ms/install-powershell.ps1" -OutFile Install-PowerShell.ps1
-          ./Install-PowerShell.ps1 -Quiet -UseMSI
+          ./Install-PowerShell.ps1 -UseMSI
           Pop-Location
           pwsh --version
       - name: Install dependencies
