@@ -19,7 +19,7 @@ jobs:
         run: |
           Push-Location var
           Invoke-WebRequest "https://github.com/PowerShell/PowerShell/releases/download/v7.5.4/PowerShell-7.5.4-win-x64.msi" -OutFile PowerShell.msi
-          msiexec -norestart -package PowerShell.msi -quiet
+          msiexec /norestart /quiet /package PowerShell.msi
           Pop-Location
       - name: Install dependencies
         run: ./Invoke.ps1 Install
