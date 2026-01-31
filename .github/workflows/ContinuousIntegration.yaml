@@ -17,10 +17,9 @@ jobs:
           dotnet-version: 10
       - name: Set up PowerShell
         run: |
-          Push-Location var
           Invoke-WebRequest "https://aka.ms/install-powershell.ps1" -OutFile Install-PowerShell.ps1
-          ./Install-PowerShell.ps1 -UseMSI
-          Pop-Location
+          ./Install-PowerShell.ps1
+          Add-Content "$Env:LOCALAPPDATA\Microsoft\powershell" "$Env:GITHUB_PATH"
           pwsh --version
       - name: Install dependencies
         run: ./Invoke.ps1 Install
