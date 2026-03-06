@@ -16,7 +16,7 @@ public class NewCommentCommand: Cmdlet {
 	/// The comment's content.
 	/// </summary>
 	[Parameter(Position = 0)]
-	public string Content { get; set; } = "";
+	public string? Content { get; set; }
 
 	/// <summary>
 	/// The context in which this comment was posted.
@@ -46,7 +46,7 @@ public class NewCommentCommand: Cmdlet {
 	/// A string describing why the content is being rechecked.
 	/// </summary>
 	[Parameter]
-	public string RecheckReason { get; set; } = "";
+	public string? RecheckReason { get; set; }
 
 	/// <summary>
 	/// The URL of the webpage that linked to the entry being requested.
@@ -58,19 +58,19 @@ public class NewCommentCommand: Cmdlet {
 	/// The comment's type.
 	/// </summary>
 	[Parameter]
-	public string Type { get; set; } = "";
+	public string? Type { get; set; }
 
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() => WriteObject(new Comment(Author) {
-		Content = Content,
+		Content = Content ?? "",
 		Context = Context,
 		Date = Date,
 		Permalink = Permalink,
 		PostModified = PostModified,
-		RecheckReason = RecheckReason,
+		RecheckReason = RecheckReason ?? "",
 		Referrer = Referrer,
-		Type = Type
+		Type = Type ?? ""
 	});
 }
