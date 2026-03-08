@@ -3,7 +3,7 @@ Prevent comment spam using [Akismet](https://akismet.com) service,
 in [C#](https://learn.microsoft.com/en-us/dotnet/csharp) and [PowerShell](https://learn.microsoft.com/en-us/powershell).
 
 ## Documentation
-- [User guide](https://github.com/cedx/akismet.net/wiki)
+- [User guide](https://github.com/cedx/akismet.net/tree/main/docs)
 - [Examples](https://github.com/cedx/akismet.net/tree/main/example)
 
 ## Development
