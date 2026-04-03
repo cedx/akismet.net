@@ -36,7 +36,7 @@ using Belin.Akismet;
 From a command prompt, run:
 
 ```powershell
-Install-PSResource Belin.Akismet
+Install-PSResource Belin.Akismet -Repository PSGallery
 ```
 
 ### 2. Import it
