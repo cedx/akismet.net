@@ -8,10 +8,10 @@ You can verify if you're already good to go with the following commands:
 
 ```shell
 dotnet --version
-# 10.0.200
+# 10.0.201
 
 pwsh --version
-# PowerShell 7.5.5
+# PowerShell 7.6.0
 ```
 
 ## Installing the .NET library with NuGet package manager
