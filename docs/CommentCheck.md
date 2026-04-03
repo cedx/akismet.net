@@ -97,7 +97,7 @@ See [Response Error Codes](https://akismet.com/developers/detailed-docs/errors) 
 
 ### Example
 ```pwsh
-Import-Module Akismet
+Import-Module Belin.Akismet
 
 $author = @{
   Email = "john.doe@domain.com"

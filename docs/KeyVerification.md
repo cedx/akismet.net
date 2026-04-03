@@ -73,7 +73,7 @@ See [Response Error Codes](https://akismet.com/developers/detailed-docs/errors) 
 ### Example
 
 ```powershell
-Import-Module Akismet
+Import-Module Belin.Akismet
 
 $isValid = Test-AkismetApiKey "123YourAPIKey" -Blog "https://www.yourblog.com"
 Write-Output ($isValid ? "The API key is valid." : "The API key is invalid.")

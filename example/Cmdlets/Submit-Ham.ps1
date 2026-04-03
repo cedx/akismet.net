@@ -2,7 +2,7 @@
 .SYNOPSIS
 	Submits ham to the Akismet service.
 #>
-Import-Module Akismet
+Import-Module Belin.Akismet
 
 $author = New-AkismetAuthor -IPAddress "192.168.0.1" -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 $comment = New-AkismetComment "I'm testing out the Service API." -Author $author

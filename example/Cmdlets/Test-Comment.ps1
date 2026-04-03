@@ -2,7 +2,7 @@
 .SYNOPSIS
 	Checks a comment against the Akismet service.
 #>
-Import-Module Akismet
+Import-Module Belin.Akismet
 
 $author = @{
 	Email = "john.doe@domain.com"

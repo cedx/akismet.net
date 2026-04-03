@@ -36,12 +36,12 @@ using Belin.Akismet;
 From a command prompt, run:
 
 ```powershell
-Install-PSResource -Name Akismet -Repository PSGallery
+Install-PSResource Belin.Akismet
 ```
 
 ### 2. Import it
 Now in your [PowerShell](https://learn.microsoft.com/en-us/powershell) code, you can use:
 
 ```powershell
-Import-Module -Name Akismet
+Import-Module Belin.Akismet
 ```

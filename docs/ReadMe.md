@@ -14,7 +14,7 @@ Install the latest version of **Akismet for .NET** with your package manager:
 dotnet add package Belin.Akismet
 
 # PowerShell with PSResourceGet
-Install-PSResource Akismet
+Install-PSResource Belin.Akismet
 ```
 
 For detailed instructions, see the [installation guide](Installation.md).
