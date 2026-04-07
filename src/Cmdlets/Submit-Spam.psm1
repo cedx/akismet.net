@@ -19,5 +19,7 @@ function Submit-Spam {
 		[Client] $Client
 	)
 
-	$Client.SubmitSpam($Comment)
+	process {
+		$Client.SubmitSpam($Comment)
+	}
 }

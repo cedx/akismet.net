@@ -19,5 +19,7 @@ function Submit-Ham {
 		[Client] $Client
 	)
 
-	$Client.SubmitHam($Comment)
+	process {
+		$Client.SubmitHam($Comment)
+	}
 }

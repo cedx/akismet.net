@@ -1,4 +1,5 @@
 using namespace Belin.Akismet
+using namespace System.Diagnostics.CodeAnalysis
 using namespace System.Text
 
 <#
@@ -10,6 +11,7 @@ using namespace System.Text
 function New-Blog {
 	[CmdletBinding()]
 	[OutputType([Belin.Akismet.Blog])]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The blog or site URL.
 		[Parameter(Mandatory, Position = 0)]

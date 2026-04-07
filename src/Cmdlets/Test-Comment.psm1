@@ -21,5 +21,7 @@ function Test-Comment {
 		[Client] $Client
 	)
 
-	$Client.CheckComment($Comment)
+	process {
+		$Client.CheckComment($Comment)
+	}
 }

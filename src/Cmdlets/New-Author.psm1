@@ -1,4 +1,5 @@
 using namespace Belin.Akismet
+using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -9,6 +10,7 @@ using namespace Belin.Akismet
 function New-Author {
 	[CmdletBinding()]
 	[OutputType([Belin.Akismet.Author])]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The author's IP address.
 		[Parameter(Mandatory)]

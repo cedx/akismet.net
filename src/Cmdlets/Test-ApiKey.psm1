@@ -21,5 +21,7 @@ function Test-ApiKey {
 		[Blog] $Blog
 	)
 
-	[Client]::new($ApiKey, $Blog).VerifyKey()
+	process {
+		[Client]::new($ApiKey, $Blog).VerifyKey()
+	}
 }
