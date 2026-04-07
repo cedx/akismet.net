@@ -21,7 +21,8 @@ $output = "var/PSModule"
 New-Item $output/bin -ItemType Directory | Out-Null
 Copy-Item Akismet.psd1 $output/Belin.Akismet.psd1
 Copy-Item *.md $output
-Copy-Item $module.RootModule $output/bin
+Copy-Item src $output -Recurse
+Remove-Item $output/src/*.cs*, $output/src/obj -Recurse
 $module.RequiredAssemblies | Copy-Item -Destination $output/bin
 
 $output = "var/PSGallery"
