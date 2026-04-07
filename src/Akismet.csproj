@@ -22,13 +22,13 @@
 		<AssemblyName>Belin.Akismet</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<OutDir>../../bin</OutDir>
+		<OutDir>../bin</OutDir>
 		<RootNamespace>Belin.Akismet</RootNamespace>
 		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="$(AssemblyName).Tests" />
-		<None Include="../../ReadMe.md" Pack="true" PackagePath="" />
+		<None Include="../ReadMe.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 </Project>
