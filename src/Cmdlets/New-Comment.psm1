@@ -33,7 +33,7 @@ public class NewCommentCommand: Cmdlet {
 	/// The permanent location of the entry the comment is submitted to.
 	#>
 	[Parameter]
-	public Uri? Permalink,
+	[uri] $Permalink,
 
 	<#
 	/// The UTC timestamp of the publication time for the post, page or thread on which the comment was posted.
@@ -51,7 +51,7 @@ public class NewCommentCommand: Cmdlet {
 	/// The URL of the webpage that linked to the entry being requested.
 	#>
 	[Parameter]
-	public Uri? Referrer,
+	[uri] $Referrer,
 
 	<#
 	/// The comment's type.

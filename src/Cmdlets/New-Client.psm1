@@ -27,7 +27,7 @@ public class NewClientCommand: Cmdlet {
 	/// The base URL of the remote API endpoint.
 	#>
 	[Parameter]
-	public Uri? Uri,
+	[uri] $Uri,
 
 	<#
 	/// The user agent string to use when making requests.
