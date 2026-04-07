@@ -10,10 +10,10 @@
 	GUID = "f986768a-1709-4142-815e-ce3be0db833e"
 
 	AliasesToExport = @()
-	FunctionsToExport = @()
+	CmdletsToExport = @()
 	VariablesToExport = @()
 
-	CmdletsToExport = @(
+	FunctionsToExport = @(
 		"New-Author"
 		"New-Blog"
 		"New-Client"
@@ -22,6 +22,17 @@
 		"Submit-Spam"
 		"Test-ApiKey"
 		"Test-Comment"
+	)
+
+	NestedModules = @(
+		"src/Cmdlets/New-Author.psm1"
+		"src/Cmdlets/New-Blog.psm1"
+		"src/Cmdlets/New-Client.psm1"
+		"src/Cmdlets/New-Comment.psm1"
+		"src/Cmdlets/Submit-Ham.psm1"
+		"src/Cmdlets/Submit-Spam.psm1"
+		"src/Cmdlets/Test-ApiKey.psm1"
+		"src/Cmdlets/Test-Comment.psm1"
 	)
 
 	RequiredAssemblies = @(

@@ -1,24 +1,25 @@
+using namespace Belin.Akismet
+
 <#
 .SYNOPSIS
 	Checks the specified comment against the service database, and returns a value indicating whether it is spam.
+.INPUTS
+	The comment to be submitted.
+.OUTPUTS
+	A value indicating whether the specified comment is spam.
 #>
-function Test-Comment"), [OutputType([CheckResult))]
-public class TestCommentCommand: Cmdlet {
+function Test-Comment {
+	[CmdletBinding()]
+	[OutputType([Belin.Akismet.CheckResult])]
+	param (
+		# The comment to be submitted.
+		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
+		[Comment] $Comment,
 
-	<#
-	/// The Akismet client used to submit the comment.
-	#>
-	[Parameter(Mandatory)]
-	[Client Client,
+		# The Akismet client used to submit the comment.
+		[Parameter(Mandatory)]
+		[Client] $Client
+	)
 
-	<#
-	/// The comment to be submitted.
-	#>
-	[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
-	[Comment Comment,
-
-	<#
-	/// Performs execution of this command.
-	#>
-	process => WriteObject(Client.CheckComment(Comment));
+	$Client.CheckComment($Comment)
 }
