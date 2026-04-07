@@ -1,45 +1,34 @@
+using namespace Belin.Akismet
+
 <#
 .SYNOPSIS
 	Creates a new Akismet client.
 #>
-function New-Client"), [OutputType([Client))]
-public class NewClientCommand: Cmdlet {
+function New-Client {
+	[CmdletBinding()]
+	[OutputType([Belin.Akismet.Client])]
+	param (
+		# The Akismet API key.
+		[Parameter(Mandatory, Position = 0)]
+		[string] $ApiKey,
 
-	<#
-	/// The Akismet API key.
-	#>
-	[Parameter(Mandatory, Position = 0)]
-	[string ApiKey,
+		# The front page or home URL of the instance making requests.
+		[Parameter(Mandatory)]
+		[Blog] $Blog,
 
-	<#
-	/// The front page or home URL of the instance making requests.
-	#>
-	[Parameter(Mandatory)]
-	[Blog Blog,
+		# The user agent string to use when making requests.
+		[ValidateNotNullOrWhiteSpace()]
+		[string] $UserAgent = "PowerShell/$($PSVersionTable.PSVersion) | Belin.Akismet/$([Client]::Version.ToString(3))",
 
-	<#
-	/// Value indicating whether the client operates in test mode.
-	#>
-	[Parameter]
-	public SwitchParameter WhatIf,
+		# The base URL of the remote API endpoint.
+		[uri] $Uri,
 
-	<#
-	/// The base URL of the remote API endpoint.
-	#>
-	[Parameter]
-	[uri] $Uri,
+		# Value indicating whether the client operates in test mode.
+		[switch] $WhatIf
+	)
 
-	<#
-	/// The user agent string to use when making requests.
-	#>
-	[Parameter, ValidateNotNullOrWhiteSpace]
-	public string UserAgent, = $"PowerShell/{PSVersionInfo.PSVersion.ToString(3)} | Akismet/{Client.Version.ToString(3)}";
-
-	<#
-	/// Performs execution of this command.
-	#>
-	process => WriteObject(new Client(ApiKey, Blog, Uri) {
-		IsTest = WhatIf,
-		UserAgent = UserAgent
-	});
+	$client = [Client]::new($ApiKey, $Blog, $Uri)
+	$client.IsTest = $WhatIf
+	$client.UserAgent = $UserAgent
+	$client
 }

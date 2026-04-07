@@ -1,5 +1,4 @@
 using namespace Belin.Akismet
-using namespace System.Net
 
 <#
 .SYNOPSIS
@@ -17,26 +16,30 @@ function New-Author {
 
 		# The author's name. If you set it to `"viagra-test-123"`, Akismet will always return `$true`.
 		[Parameter(Position = 0)]
-		[string] $Name,
+		[ValidateNotNull()]
+		[string] $Name = "",
 
 		# The author's mail address. If you set it to `"akismet-guaranteed-spam@example.com"`, Akismet will always return `$true`.
-		[string] $Email,
+		[ValidateNotNull()]
+		[string] $Email = "",
 
 		# The author's role. If you set it to `"administrator"`, Akismet will always return `$false`.
-		[string] $Role,
+		[ValidateNotNull()]
+		[string] $Role = "",
 
 		# The URL of the author's website.
 		[uri] $Url,
 
 		# The author's user agent, that is the string identifying the Web browser used to submit comments.
-		[string] $UserAgent
+		[ValidateNotNull()]
+		[string] $UserAgent = ""
 	)
 
 	$author = [Author] $IPAddress
-	$author.Email = $Email ?? ""
-	$author.Name = $Name ?? ""
-	$author.Role = $Role ?? ""
+	$author.Email = $Email
+	$author.Name = $Name
+	$author.Role = $Role
 	$author.Url = $Url
-	$author.UserAgent = $UserAgent ?? ""
+	$author.UserAgent = $UserAgent
 	$author
 }
