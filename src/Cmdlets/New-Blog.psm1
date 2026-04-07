@@ -4,6 +4,8 @@ using namespace System.Text
 <#
 .SYNOPSIS
 	Creates a new blog.
+.OUTPUTS
+	The newly created blog.
 #>
 function New-Blog {
 	[CmdletBinding()]

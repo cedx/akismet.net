@@ -3,6 +3,8 @@ using namespace Belin.Akismet
 <#
 .SYNOPSIS
 	Creates a new comment.
+.OUTPUTS
+	The newly created comment.
 #>
 function New-Comment {
 	[CmdletBinding()]

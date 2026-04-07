@@ -3,6 +3,8 @@ using namespace Belin.Akismet
 <#
 .SYNOPSIS
 	Creates a new Akismet client.
+.OUTPUTS
+	The newly created client.
 #>
 function New-Client {
 	[CmdletBinding()]
