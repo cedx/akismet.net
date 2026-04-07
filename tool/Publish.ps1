@@ -15,7 +15,6 @@ git push origin "v$version"
 
 $output = "var/NuGet"
 dotnet pack --output $output
-Remove-Item "$output/*.Cmdlets.*"
 Get-Item "$output/*.nupkg" | ForEach-Object { dotnet nuget push $_ --api-key $Env:NUGET_API_KEY --source NuGet }
 
 $output = "var/PSModule"

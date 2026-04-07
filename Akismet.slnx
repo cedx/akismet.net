@@ -1,6 +1,5 @@
 <Solution>
-	<Project Path="src/Akismet/Akismet.csproj" />
-	<Project Path="src/Akismet.Cmdlets/Akismet.Cmdlets.csproj" />
+	<Project Path="src/Akismet.csproj" />
 	<Project Path="test/Akismet.Tests.csproj">
 		<Build Solution="Release|*" Project="false" />
 	</Project>
