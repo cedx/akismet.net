@@ -66,7 +66,7 @@ catch (HttpRequestException e) {
 }
 ```
 
-See the [source code](https://github.com/cedx/akismet.net/tree/main/src/Akismet) for detailed information
+See the [source code](https://github.com/cedx/akismet.net/tree/main/src) for detailed information
 about the `Author`, `Blog` and `Comment` classes, and their properties.
 
 ## PowerShell
