@@ -1,4 +1,5 @@
 using namespace Belin.Akismet
+using namespace System.Net.Http
 
 <#
 .SYNOPSIS
@@ -22,6 +23,7 @@ function Test-ApiKey {
 	)
 
 	process {
-		[Client]::new($ApiKey, $Blog).VerifyKey()
+		try { [Client]::new($ApiKey, $Blog).VerifyKey() }
+		catch [HttpRequestException] { Write-Error $_.Exception }
 	}
 }

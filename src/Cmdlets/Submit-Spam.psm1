@@ -1,4 +1,5 @@
 using namespace Belin.Akismet
+using namespace System.Net.Http
 
 <#
 .SYNOPSIS
@@ -20,6 +21,7 @@ function Submit-Spam {
 	)
 
 	process {
-		$Client.SubmitSpam($Comment)
+		try { $Client.SubmitSpam($Comment) }
+		catch [HttpRequestException] { Write-Error $_.Exception }
 	}
 }

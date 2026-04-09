@@ -1,4 +1,5 @@
 using namespace Belin.Akismet
+using namespace System.Net.Http
 
 <#
 .SYNOPSIS
@@ -20,6 +21,7 @@ function Submit-Ham {
 	)
 
 	process {
-		$Client.SubmitHam($Comment)
+		try { $Client.SubmitHam($Comment) }
+		catch [HttpRequestException] { Write-Error $_.Exception }
 	}
 }

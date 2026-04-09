@@ -8,6 +8,6 @@ Describe "Submit-Ham" {
 	}
 
 	It "should complete without any error" {
-		{ $ham | Submit-AkismetHam -Client $client } | Should -Not -Throw
+		{ $ham | Submit-AkismetHam -Client $client -ErrorAction Stop } | Should -Not -Throw
 	}
 }

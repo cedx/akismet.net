@@ -8,6 +8,6 @@ Describe "Submit-Spam" {
 	}
 
 	It "should complete without any error" {
-		{ $spam | Submit-AkismetSpam -Client $client } | Should -Not -Throw
+		{ $spam | Submit-AkismetSpam -Client $client -ErrorAction Stop } | Should -Not -Throw
 	}
 }
