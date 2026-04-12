@@ -1,5 +1,4 @@
 using namespace Belin.Akismet
-using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -10,7 +9,6 @@ using namespace System.Diagnostics.CodeAnalysis
 function New-Comment {
 	[CmdletBinding()]
 	[OutputType([Belin.Akismet.Comment])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The comment's author.
 		[Parameter(Mandatory)]
