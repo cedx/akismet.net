@@ -19,7 +19,7 @@ function New-Blog {
 		[ValidateScript({
 			$charset = $_
 			[string]::IsNullOrEmpty($charset) -or [Encoding].GetEncodings().Where({ $_.Name -eq $charset }, "First").Count
-		}, ErrorMessage = "The character encoding is invalid.")]
+		}, ErrorMessage = "The specified character encoding is unknown.")]
 		[string] $Charset,
 
 		# The languages in use on the blog or site, in ISO 639-1 format.
