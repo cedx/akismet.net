@@ -15,11 +15,10 @@ dotnet pack --no-build --output $output
 Get-Item "$output/*.nupkg" | ForEach-Object { dotnet nuget push $_ --api-key $Env:NUGET_API_KEY --source NuGet }
 
 $output = "var/PSModule"
-New-Item $output/bin -ItemType Directory | Out-Null
+New-Item $output/bin, $output/src -ItemType Directory | Out-Null
 Copy-Item Akismet.psd1 $output/Belin.Akismet.psd1
 Copy-Item *.md $output
-Copy-Item src $output -Recurse
-Remove-Item $output/src/*.cs*, $output/src/obj -Recurse
+Copy-Item src/Cmdlets $output/src -Recurse
 $module.RequiredAssemblies | Copy-Item -Destination $output/bin
 
 $output = "var/PSGallery"
