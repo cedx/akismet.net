@@ -38,7 +38,6 @@ See [Response Error Codes](https://akismet.com/developers/detailed-docs/errors) 
 ### Example
 ```cs
 using Belin.Akismet;
-using System;
 using System.Net.Http;
 using System.Text;
 

@@ -1,5 +1,4 @@
 using Belin.Akismet;
-using System;
 using System.Net.Http;
 
 // Submits spam to the Akismet service.

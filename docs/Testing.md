@@ -14,7 +14,6 @@ If you receive anything else, something is wrong in your client, data, or commun
 
 ```cs
 using Belin.Akismet;
-using System;
 
 var author = new Author(ipAddress: "127.0.0.1") {
   Name = "viagra-test-123",
@@ -36,7 +35,6 @@ The Akismet API will always return a `CheckResult.Ham` response. Any other respo
 
 ```cs
 using Belin.Akismet;
-using System;
 
 var author = new Author(ipAddress: "127.0.0.1") {
   Role = AuthorRole.Administrator,
