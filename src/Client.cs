@@ -124,13 +124,8 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 	/// <param name="cancellationToken">The token to cancel the operation.</param>
 	/// <returns><see langword="true"/> if the specified API key is valid, otherwise <see langword="false"/>.</returns>
 	public async Task<bool> VerifyKeyAsync(CancellationToken cancellationToken = default) {
-		try {
-			using var response = await Fetch("1.1/verify-key", cancellationToken: cancellationToken);
-			return await response.Content.ReadAsStringAsync(cancellationToken) == "valid";
-		}
-		catch {
-			return false;
-		}
+		using var response = await Fetch("1.1/verify-key", cancellationToken: cancellationToken);
+		return await response.Content.ReadAsStringAsync(cancellationToken) == "valid";
 	}
 
 	/// <summary>
@@ -145,7 +140,7 @@ public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 		var body = Blog.ToDictionary();
 		body.Add("api_key", ApiKey);
 		if (IsTest) body.Add("is_test", "1");
-		if (fields is not null) foreach (var item in fields) body.Add(item.Key, item.Value);
+		if (fields is not null) foreach (var field in fields) body.Add(field.Key, field.Value);
 
 		using var httpClient = new HttpClient();
 		httpClient.DefaultRequestHeaders.Add("User-Agent", UserAgent);
