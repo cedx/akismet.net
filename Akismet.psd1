@@ -1,5 +1,4 @@
 @{
-	DefaultCommandPrefix = "Akismet"
 	ModuleVersion = "5.0.0"
 	PowerShellVersion = "7.6"
 
@@ -7,37 +6,12 @@
 	CompanyName = "Cedric-Belin.fr"
 	Copyright = "© Cédric Belin"
 	Description = "Prevent comment spam using the Akismet service."
-	GUID = "f986768a-1709-4142-815e-ce3be0db833e"
+	GUID = "b76e3854-87a6-43bd-b09a-3ac2dc419369"
 
 	AliasesToExport = @()
 	CmdletsToExport = @()
+	FunctionsToExport = @()
 	VariablesToExport = @()
-
-	FunctionsToExport = @(
-		"New-Author"
-		"New-Blog"
-		"New-Client"
-		"New-Comment"
-		"Submit-Ham"
-		"Submit-Spam"
-		"Test-ApiKey"
-		"Test-Comment"
-	)
-
-	NestedModules = @(
-		"src/Cmdlets/New-Author.psm1"
-		"src/Cmdlets/New-Blog.psm1"
-		"src/Cmdlets/New-Client.psm1"
-		"src/Cmdlets/New-Comment.psm1"
-		"src/Cmdlets/Submit-Ham.psm1"
-		"src/Cmdlets/Submit-Spam.psm1"
-		"src/Cmdlets/Test-ApiKey.psm1"
-		"src/Cmdlets/Test-Comment.psm1"
-	)
-
-	RequiredAssemblies = @(
-		"bin/Belin.Akismet.dll"
-	)
 
 	PrivateData = @{
 		PSData = @{
