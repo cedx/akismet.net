@@ -52,19 +52,20 @@ public sealed class Comment(Author author) {
 	public string Type { get; set; } = "";
 
 	/// <summary>
-	/// Converts this object into a dictionary.
+	/// Converts the specified comment to a dictionary.
 	/// </summary>
-	/// <returns>The dictionary corresponding to this object.</returns>
-	internal Dictionary<string, string> ToDictionary() {
-		var map = Author.ToDictionary();
-		if (!string.IsNullOrWhiteSpace(Content)) map["comment_content"] = Content;
-		// TODO if (Context.Count > 0) map["comment_context"] = string.Join(',', Context);
-		if (Date is not null) map["comment_date_gmt"] = Date.Value.ToUniversalTime().ToString("o");
-		if (Permalink is not null) map["permalink"] = Permalink.ToString();
-		if (PostModified is not null) map["comment_post_modified_gmt"] = PostModified.Value.ToUniversalTime().ToString("o");
-		if (!string.IsNullOrWhiteSpace(RecheckReason)) map["recheck_reason"] = RecheckReason;
-		if (Referrer is not null) map["referrer"] = Referrer.ToString();
-		if (!string.IsNullOrWhiteSpace(Type)) map["comment_type"] = Type;
+	/// <param name="comment">The comment to convert.</param>
+	/// <returns>The dictionary corresponding to the specified comment.</returns>
+	public static explicit operator Dictionary<string, string>(Comment comment) {
+		var map = (Dictionary<string, string>) comment.Author;
+		if (!string.IsNullOrWhiteSpace(comment.Content)) map["comment_content"] = comment.Content;
+		// TODO if (comment.Context.Count > 0) map["comment_context"] = string.Join(',', comment.Context);
+		if (comment.Date is not null) map["comment_date_gmt"] = comment.Date.Value.ToUniversalTime().ToString("o");
+		if (comment.Permalink is not null) map["permalink"] = comment.Permalink.ToString();
+		if (comment.PostModified is not null) map["comment_post_modified_gmt"] = comment.PostModified.Value.ToUniversalTime().ToString("o");
+		if (!string.IsNullOrWhiteSpace(comment.RecheckReason)) map["recheck_reason"] = comment.RecheckReason;
+		if (comment.Referrer is not null) map["referrer"] = comment.Referrer.ToString();
+		if (!string.IsNullOrWhiteSpace(comment.Type)) map["comment_type"] = comment.Type;
 		return map;
 	}
 }

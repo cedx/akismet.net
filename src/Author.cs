@@ -45,17 +45,18 @@ public sealed class Author(IPAddress ipAddress) {
 	public Author(string ipAddress): this(IPAddress.Parse(ipAddress)) {}
 
 	/// <summary>
-	/// Converts this object into a dictionary.
+	/// Converts the specified author to a dictionary.
 	/// </summary>
-	/// <returns>The dictionary corresponding to this object.</returns>
-	internal Dictionary<string, string> ToDictionary() {
-		var map = new Dictionary<string, string> { ["user_ip"] = IPAddress.ToString() };
-		if (!string.IsNullOrWhiteSpace(Email)) map["comment_author_email"] = Email;
-		if (!string.IsNullOrWhiteSpace(Name)) map["comment_author"] = Name;
-		if (!string.IsNullOrWhiteSpace(Role)) map["user_role"] = Role;
-		if (Url is not null) map["comment_author_url"] = Url.ToString();
-		if (!string.IsNullOrWhiteSpace(UserAgent)) map["user_agent"] = UserAgent;
-		return map;
+	/// <param name="author">The author to convert.</param>
+	/// <returns>The dictionary corresponding to the specified author.</returns>
+	public static explicit operator Dictionary<string, string>(Author author) {
+		var dictionary = new Dictionary<string, string> { ["user_ip"] = author.IPAddress.ToString() };
+		if (!string.IsNullOrWhiteSpace(author.Email)) dictionary["comment_author_email"] = author.Email;
+		if (!string.IsNullOrWhiteSpace(author.Name)) dictionary["comment_author"] = author.Name;
+		if (!string.IsNullOrWhiteSpace(author.Role)) dictionary["user_role"] = author.Role;
+		if (author.Url is not null) dictionary["comment_author_url"] = author.Url.ToString();
+		if (!string.IsNullOrWhiteSpace(author.UserAgent)) dictionary["user_agent"] = author.UserAgent;
+		return dictionary;
 	}
 }
 

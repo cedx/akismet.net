@@ -31,6 +31,18 @@ public sealed class Blog(Uri url) {
 	public Blog([StringSyntax(StringSyntaxAttribute.Uri)] string url): this(new Uri(url, UriKind.Absolute)) {}
 
 	/// <summary>
+	/// Converts the specified blog to a dictionary.
+	/// </summary>
+	/// <param name="blog">The blog to convert.</param>
+	/// <returns>The dictionary corresponding to the specified blog.</returns>
+	public static explicit operator Dictionary<string, string>(Blog blog) {
+		var dictionary = new Dictionary<string, string> { ["blog"] = blog.Url.ToString() };
+		if (blog.Charset is not null) dictionary["blog_charset"] = blog.Charset.WebName;
+		if (blog.Languages.Count > 0) dictionary["blog_lang"] = string.Join(',', blog.Languages);
+		return dictionary;
+	}
+
+	/// <summary>
 	/// Creates a new blog from the specified string.
 	/// </summary>
 	/// <param name="url">The blog or site URL.</param>
@@ -43,15 +55,4 @@ public sealed class Blog(Uri url) {
 	/// <param name="url">The blog or site URL.</param>
 	/// <returns>The blog corresponding to the specified URI.</returns>
 	public static implicit operator Blog(Uri url) => new(url);
-
-	/// <summary>
-	/// Converts this object into a dictionary.
-	/// </summary>
-	/// <returns>The dictionary corresponding to this object.</returns>
-	internal Dictionary<string, string> ToDictionary() {
-		var map = new Dictionary<string, string> { ["blog"] = Url.ToString() };
-		if (Charset is not null) map["blog_charset"] = Charset.WebName;
-		if (Languages.Count > 0) map["blog_lang"] = string.Join(',', Languages);
-		return map;
-	}
 }
