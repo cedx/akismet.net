@@ -2,19 +2,16 @@
 
 ## Requirements
 Before installing **Akismet for .NET**, you need to make sure you have the [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/sdk)
-and/or [PowerShell](https://learn.microsoft.com/en-us/powershell) up and running.
+and the [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools) tool up and running.
 		
-You can verify if you're already good to go with the following commands:
+You can verify if you're already good to go with the following command:
 
 ```shell
 dotnet --version
 # 10.0.201
-
-pwsh --version
-# PowerShell 7.6.0
 ```
 
-## Installing the .NET library with NuGet package manager
+## Installing with NuGet package manager
 
 ### 1. Install it
 From a command prompt, run:
@@ -28,20 +25,4 @@ Now in your [C#](https://learn.microsoft.com/en-us/dotnet/csharp) code, you can 
 
 ```cs
 using Belin.Akismet;
-```
-
-## Installing the PowerShell module with PSResourceGet package manager
-
-### 1. Install it
-From a command prompt, run:
-
-```powershell
-Install-PSResource Belin.Akismet -Repository PSGallery
-```
-
-### 2. Import it
-Now in your [PowerShell](https://learn.microsoft.com/en-us/powershell) code, you can use:
-
-```powershell
-Import-Module Belin.Akismet
 ```

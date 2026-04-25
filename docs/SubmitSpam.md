@@ -9,23 +9,22 @@ you should ensure that the values that you do send match those of the original c
 
 See the [Akismet API documentation](https://akismet.com/developers/detailed-docs/submit-spam-missed-spam) for more information.
 
-## .NET/C#
 ```cs
 Task Client.SubmitSpam(Comment comment, CancellationToken cancellationToken = default)
 ```
 
-### Parameters
+## Parameters
 
-#### Comment **comment**
+### Comment **comment**
 The user's `Comment` to be submitted, incorrectly classified as ham.
 
 > [!NOTE]
 > Ideally, it should be the same object as the one passed to the original [comment check](CommentCheck.md) API call.
 
-#### CancellationToken **cancellationToken**
+### CancellationToken **cancellationToken**
 The token to cancel the operation.
 
-### Return value
+## Return value
 A `Task` that completes when the given `Comment` has been submitted.
 
 The task faults with a `HttpRequestException` when an issue occurs.
@@ -35,7 +34,7 @@ about what exactly was invalid about the call.
 It can also fault with a custom error message (provided by the `X-akismet-alert-msg` header).
 See [Response Error Codes](https://akismet.com/developers/detailed-docs/errors) for more information.
 
-### Example
+## Example
 ```cs
 using Belin.Akismet;
 using System.Net.Http;
@@ -52,42 +51,4 @@ try {
 catch (HttpRequestException e) {
   Console.Error.WriteLine($"An error occurred: {e.Message}");
 }
-```
-
-## PowerShell
-```pwsh
-Submit-AkismetSpam -Client $client -Comment $comment
-```
-
-### Parameters
-
-#### **-Client** &lt;Client&gt;
-The `Client` instance used to submit the comment.
-
-#### **-Comment** &lt;Comment&gt;
-The `Comment` providing the user's message to be checked.
-
-> [!NOTE]
-> Ideally, it should be the same object as the one passed to the original [comment check](CommentCheck.md) API call.
-
-### Return value
-None.
-
-The cmdlet throws a `HttpRequestException` error when an issue occurs.
-The exception `Message` usually includes some debug information, provided by the `X-akismet-debug-help` HTTP header,
-about what exactly was invalid about the call.
-
-It can also fault with a custom error message (provided by the `X-akismet-alert-msg` header).
-See [Response Error Codes](https://akismet.com/developers/detailed-docs/errors) for more information.
-
-### Example
-```pwsh
-Import-Module Belin.Akismet
-
-$author = New-AkismetAuthor -IPAddress "127.0.0.1" -UserAgent "Spam Bot/6.6.6"
-$comment = New-AkismetComment "Spam!" -Author $author
-
-$client = New-AkismetClient -ApiKey "123YourAPIKey" -Blog "https://www.yourblog.com"
-Submit-AkismetSpam -Client $client -Comment $comment
-Write-Output "The comment was successfully submitted as spam."
 ```

@@ -1,20 +1,16 @@
 # Akismet for .NET
 Used by millions of websites, [Akismet](https://akismet.com) filters out hundreds of millions of spam comments from the Web every day.
-Add Akismet to your [.NET](https://dotnet.microsoft.com) applications or [PowerShell](https://learn.microsoft.com/en-us/powershell) scripts so you don't have to worry about spam again.
+Add Akismet to your [.NET](https://dotnet.microsoft.com) applications so you don't have to worry about spam again.
 
 > [!WARNING]
 > The Akismet service requires an API key.
 > If you are not already registered, [sign up for an Akismet account](https://akismet.com/developers).
 
 ## Quick start
-Install the latest version of **Akismet for .NET** with your package manager:
+Install the latest version of **Akismet for .NET** with [NuGet](https://www.nuget.org) package manager:
 
 ```shell
-# .NET with NuGet
 dotnet add package Belin.Akismet
-
-# PowerShell with PSResourceGet
-Install-PSResource Belin.Akismet
 ```
 
 For detailed instructions, see the [installation guide](Installation.md).
