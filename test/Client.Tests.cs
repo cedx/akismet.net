@@ -34,26 +34,26 @@ public sealed class ClientTests {
 		client = new Client(Environment.GetEnvironmentVariable("AKISMET_API_KEY")!, "https://github.com/cedx/akismet.net") { IsTest = true };
 		this.testContext = testContext;
 
-		var hamAuthor = new Author(ipAddress: "192.168.0.1") {
+		var author = new Author(ipAddress: "192.168.0.1") {
 			Name = "Akismet",
 			Role = AuthorRole.Administrator,
 			Url = new Uri("https://cedric-belin.fr"),
 			UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 		};
 
-		ham = new Comment(hamAuthor) {
+		ham = new Comment(author) {
 			Content = "I'm testing out the Service API.",
 			Referrer = new Uri("https://www.nuget.org/packages/Belin.Akismet"),
 			Type = CommentType.Comment
 		};
 
-		var spamAuthor = new Author(ipAddress: "127.0.0.1") {
+		author = new Author(ipAddress: "127.0.0.1") {
 			Email = "akismet-guaranteed-spam@example.com",
 			Name = "viagra-test-123",
 			UserAgent = "Spam Bot/6.6.6"
 		};
 
-		spam = new Comment(spamAuthor) {
+		spam = new Comment(author) {
 			Content = "Spam!",
 			Date = DateTime.Now,
 			Type = CommentType.BlogPost
@@ -80,7 +80,7 @@ public sealed class ClientTests {
 	public async Task VerifyKey() {
 		IsTrue(await client.VerifyKeyAsync(testContext.CancellationToken));
 
-		var newClient = new Client("0123456789-ABCDEF", client.Blog) { IsTest = true };
+		var newClient = new Client("0123456789AB", client.Blog) { IsTest = true };
 		IsFalse(await newClient.VerifyKeyAsync(testContext.CancellationToken));
 	}
 }
