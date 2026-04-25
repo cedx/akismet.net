@@ -17,7 +17,7 @@ dotnet --version
 From a command prompt, run:
 
 ```shell
-dotnet add package Belin.Akismet
+dotnet package add Belin.Akismet
 ```
 
 ### 2. Import it
