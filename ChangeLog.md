@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [5.1.0](https://github.com/cedx/akismet.net/compare/v5.0.0...v5.1.0)
+- Added the `cancellationToken` parameter to the synchronous methods of the `Client` class.
+- Added explicit conversions from the `Author`, `Blog` and `Comment` classes to a `Dictionary<string, string>`.
+
 ## Version [5.0.0](https://github.com/cedx/akismet.net/compare/v4.0.0...v5.0.0)
 - Breaking change: raised the required target framework.
 - Ported the [C#](https://learn.microsoft.com/en-us/dotnet/csharp) cmdlets to [PowerShell](https://learn.microsoft.com/en-us/powershell).
