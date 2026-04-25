@@ -11,14 +11,14 @@ using System.Diagnostics.CodeAnalysis;
 public class Client(string apiKey, Blog blog, Uri? baseUrl = null) {
 
 	/// <summary>
-	/// The assembly version.
-	/// </summary>
-	public static Version Version => typeof(Client).Assembly.GetName().Version!;
-
-	/// <summary>
 	/// The response returned by the <c>submit-ham</c> and <c>submit-spam</c> endpoints when the outcome is a success.
 	/// </summary>
 	private const string Success = "Thanks for making the web a better place.";
+
+	/// <summary>
+	/// The assembly version.
+	/// </summary>
+	private static Version Version => typeof(Client).Assembly.GetName().Version!;
 
 	/// <summary>
 	/// The Akismet API key.
