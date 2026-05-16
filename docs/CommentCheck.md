@@ -51,7 +51,7 @@ try {
   var comment = new Comment(author) {
     Content = "A user comment.",
     Date = DateTime.Now,
-    Referrer = new Uri("https://github.com/cedx/akismet.net"),
+    Referrer = new Uri("https://github.com/CedX/Akismet.net"),
     Type = CommentType.ContactForm
   };
 
@@ -64,5 +64,5 @@ catch (HttpRequestException e) {
 }
 ```
 
-See the [source code](https://github.com/cedx/akismet.net/tree/main/src) for detailed information
+See the [source code](https://github.com/CedX/Akismet.net/tree/main/src) for detailed information
 about the `Author`, `Blog` and `Comment` classes, and their properties.

@@ -14,7 +14,7 @@ try {
 	var comment = new Comment(author) {
 		Content = "A user comment.",
 		Date = DateTime.Now,
-		Referrer = new Uri("https://github.com/cedx/akismet.net"),
+		Referrer = new Uri("https://github.com/CedX/Akismet.net"),
 		Type = CommentType.ContactForm
 	};
 

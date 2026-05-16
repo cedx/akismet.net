@@ -31,7 +31,7 @@ public sealed class ClientTests {
 	/// </summary>
 	/// <param name="testContext">The test context.</param>
 	public ClientTests(TestContext testContext) {
-		client = new Client(Environment.GetEnvironmentVariable("AKISMET_API_KEY")!, "https://github.com/cedx/akismet.net") { IsTest = true };
+		client = new Client(Environment.GetEnvironmentVariable("AKISMET_API_KEY")!, "https://github.com/CedX/Akismet.net") { IsTest = true };
 		this.testContext = testContext;
 
 		var author = new Author(ipAddress: "192.168.0.1") {

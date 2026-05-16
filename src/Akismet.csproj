@@ -13,7 +13,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
 		<PackageTags>akismet;api;client;comment;spam;validation</PackageTags>
-		<RepositoryUrl>https://github.com/cedx/akismet.net.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/CedX/Akismet.net.git</RepositoryUrl>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 

@@ -42,5 +42,5 @@ catch (HttpRequestException e) {
 }
 ```
 
-See the [source code](https://github.com/cedx/akismet.net/tree/main/src) for detailed information
+See the [source code](https://github.com/CedX/Akismet.net/tree/main/src) for detailed information
 about the `Client` and `Blog` classes, and their properties and methods.
