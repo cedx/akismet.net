@@ -8,27 +8,25 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Authors>CedX</Authors>
-		<IncludeSymbols>true</IncludeSymbols>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
-		<PackageTags>akismet;api;client;comment;spam;validation</PackageTags>
-		<RepositoryUrl>https://github.com/CedX/Akismet.net.git</RepositoryUrl>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	</PropertyGroup>
-
-	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<AssemblyName>Belin.Akismet</AssemblyName>
-		<HotReloadAutoRestart>true</HotReloadAutoRestart>
+		<AssemblyName>Belin.Akismet.Tests</AssemblyName>
+		<BaseOutputPath>obj</BaseOutputPath>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<OutDir>../bin</OutDir>
+		<OutDir>../Binaries</OutDir>
 		<RootNamespace>Belin.Akismet</RootNamespace>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="../ReadMe.md" Pack="true" PackagePath="" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.*" />
+		<PackageReference Include="MSTest" Version="4.*" />
+		<ProjectReference Include="../Sources/Akismet.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
+		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting.Assert" Static="true" />
 	</ItemGroup>
 </Project>
